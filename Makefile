@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2025/08/08 18:09:16 by daniema3         ###   ########.fr        #
+#    Updated: 2025/08/17 19:37:30 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,11 +27,21 @@ INCLUDE_DIRS =	-I$(SRC_DIR)
 CFLAGS =	-Wall -Werror -Wextra \
 			-g3 \
 			-fdiagnostics-color=always \
+			-Wl,--wrap=malloc \
+			-Wl,--wrap=free \
 			$(INCLUDE_DIRS)
 
 # > ~ Main project files
 
 SRCS =	cub3d.c
+
+# > ~ Auto free & double free prevention (I'M NOT SURE IF WE CAN DO THIS)
+
+SRCS +=	mem/free_wrapper.c \
+		mem/get_alloc_list.c \
+		mem/malloc_wrapper.c
+
+# > ~ .c to .o conversion
 
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCS))
 

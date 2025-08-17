@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   get_alloc_list.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/08 18:09:48 by daniema3          #+#    #+#             */
-/*   Updated: 2025/08/17 19:26:59 by daniema3         ###   ########.fr       */
+/*   Created: 2025/08/17 19:31:49 by daniema3          #+#    #+#             */
+/*   Updated: 2025/08/17 19:32:03 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "mem.h"
 
-# include <stdbool.h>
+t_alloc_node	*get_alloc_list(t_alloc_node *first)
+{
+	static t_alloc_node	*alloc_list = NULL;
 
-# include <stdlib.h>
-
-#endif
+	if (first != NULL)
+		alloc_list = first;
+	return (alloc_list);
+}

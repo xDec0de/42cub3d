@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   malloc_wrapper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/08 18:09:48 by daniema3          #+#    #+#             */
-/*   Updated: 2025/08/17 19:26:59 by daniema3         ###   ########.fr       */
+/*   Created: 2025/08/17 19:32:28 by daniema3          #+#    #+#             */
+/*   Updated: 2025/08/17 19:33:23 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "mem.h"
 
-# include <stdbool.h>
+static void	add_alloc(void *ptr)
+{
+	t_alloc_node	*first;
+	t_alloc_node	*new;
 
-# include <stdlib.h>
+	first = get_alloc_list(NULL);
+	if (ptr == NULL)
+		return ;
+	new = __real_malloc(sizeof(t_alloc_node));
+	new->ptr = ptr;
+	new->next = first;
+	get_alloc_list(new);
+}
 
-#endif
+void	*__wrap_malloc(size_t size)
+{
+	void	*ptr;
+
+	ptr = __real_malloc(size);
+	add_alloc(ptr);
+	return (ptr);
+}
