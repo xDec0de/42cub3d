@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 18:09:48 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/10 19:41:31 by rexposit         ###   ########.fr       */
+/*   Updated: 2025/09/10 21:04:53 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdbool.h>
 
 # include <stdlib.h>
+
+#include <stdio.h>
 
 typedef struct s_map
 {
