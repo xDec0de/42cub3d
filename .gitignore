@@ -59,3 +59,17 @@ cub3d
 
 # Logs folder
 logs/
+
+# JSON files
+*.json
+
+# Visual Studio temporary files
+.vscode/
+*.sln
+*.vcxproj
+*.vcxproj.user
+*.vcxproj.filters
+*.vcxproj.*.user
+*.cache
+*.log
+*.tlog
