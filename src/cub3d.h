@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 18:09:48 by daniema3          #+#    #+#             */
-/*   Updated: 2025/08/17 19:26:59 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/09/10 19:27:22 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,22 @@
 # include <stdbool.h>
 
 # include <stdlib.h>
+
+typedef struct s_map {
+	char **grid;
+	int   width;
+	int   height;
+} t_map;
+
+typedef struct s_player {
+	int  x;
+	int  y;
+	char dir;
+} t_player;
+
+typedef struct s_game {
+	t_map	map;
+	t_player player;
+} t_game;
 
 #endif
