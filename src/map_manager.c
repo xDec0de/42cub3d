@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 12:54:41 by rexposit          #+#    #+#             */
-/*   Updated: 2025/09/12 14:12:26 by rexposit         ###   ########.fr       */
+/*   Updated: 2025/09/12 14:12:51 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ t_game	*cb_init(void)
 	game.player.x = 0;
 	game.player.y = 0;
 	game.player.dir = 0;
-
 	return (&game);
 }
 
