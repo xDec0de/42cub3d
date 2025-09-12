@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 12:54:41 by rexposit          #+#    #+#             */
-/*   Updated: 2025/09/12 13:37:27 by rexposit         ###   ########.fr       */
+/*   Updated: 2025/09/12 13:39:07 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ t_game	*cb_init(void)
 	t_game	*init;
 
 	init = cb_malloc(sizeof(t_game));
-	if (!init)
-		return (NULL);
 	init->map.grid = NULL;
 	init->map.width = 0;
 	init->map.height = 0;
