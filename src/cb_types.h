@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   cb_types.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/08 18:09:27 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/12 04:20:57 by daniema3         ###   ########.fr       */
+/*   Created: 2025/09/12 04:18:46 by daniema3          #+#    #+#             */
+/*   Updated: 2025/09/12 04:28:49 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d.h>
-#include "cb_types.h"
+#ifndef CB_TYPES_H
+# define CB_TYPES_H
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		printf(ERR_ARGC, argv[0]);
-		return (ERRC_ARGC);
-	}
-	return (EXIT_SUCCESS);
-}
+# include <stdbool.h>
+# include <stddef.h>
+
+#endif

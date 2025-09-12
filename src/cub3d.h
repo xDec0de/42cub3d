@@ -6,14 +6,14 @@
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 18:09:48 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/12 03:29:30 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/09/12 04:29:07 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include <stdbool.h>
+# include "cb_types.h"
 
 # include <stdlib.h>
 

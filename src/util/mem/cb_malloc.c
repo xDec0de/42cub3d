@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   cb_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/08 18:09:27 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/12 04:20:57 by daniema3         ###   ########.fr       */
+/*   Created: 2025/09/12 04:18:08 by daniema3          #+#    #+#             */
+/*   Updated: 2025/09/12 04:49:15 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d.h>
-#include "cb_types.h"
+#include <stdlib.h>
+#include "cb_msg.h"
 
-int	main(int argc, char **argv)
+void	*cb_malloc(size_t size)
 {
-	if (argc != 2)
-	{
-		printf(ERR_ARGC, argv[0]);
-		return (ERRC_ARGC);
-	}
-	return (EXIT_SUCCESS);
+	char	*ptr;
+
+	ptr = malloc(size);
+	if (ptr == NULL)
+		cb_exit(ERR_MALLOC_FAIL, ERRC_MALLOC_FAIL);
+	return (ptr);
 }

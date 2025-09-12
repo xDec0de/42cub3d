@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   cb_strutils.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/08 18:09:27 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/12 04:20:57 by daniema3         ###   ########.fr       */
+/*   Created: 2025/09/12 04:37:37 by daniema3          #+#    #+#             */
+/*   Updated: 2025/09/12 04:38:39 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cub3d.h>
-#include "cb_types.h"
+#ifndef CB_STRUTILS_H
+# define CB_STRUTILS_H
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		printf(ERR_ARGC, argv[0]);
-		return (ERRC_ARGC);
-	}
-	return (EXIT_SUCCESS);
-}
+# include "cb_types.h"
+
+size_t	cb_strlen(char *str);
+
+#endif

@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2025/08/17 19:37:30 by daniema3         ###   ########.fr        #
+#    Updated: 2025/09/12 04:50:13 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,10 @@ TEST_DIR = ./test
 
 CC = cc
 
-INCLUDE_DIRS =	-I$(SRC_DIR)
+INCLUDE_DIRS =	-I$(SRC_DIR) \
+				-I$(SRC_DIR)/parser \
+				-I$(SRC_DIR)/util/mem \
+				-I$(SRC_DIR)/util/str
 
 CFLAGS =	-Wall -Werror -Wextra \
 			-g3 \
@@ -33,13 +36,22 @@ CFLAGS =	-Wall -Werror -Wextra \
 
 # > ~ Main project files
 
-SRCS =	cub3d.c
+SRCS =	cub3d.c \
+		cb_exit.c
+
+# > ~ Utils - Memory
+
+SRCS +=	util/mem/cb_malloc.c
+
+# > ~ Utils - Strings
+
+SRCS +=	util/str/cb_strlen.c
 
 # > ~ Auto free & double free prevention (I'M NOT SURE IF WE CAN DO THIS)
 
-SRCS +=	mem/free_wrapper.c \
-		mem/get_alloc_list.c \
-		mem/malloc_wrapper.c
+SRCS +=	util/mem/tmp/free_wrapper.c \
+		util/mem/tmp/get_alloc_list.c \
+		util/mem/tmp/malloc_wrapper.c
 
 # > ~ .c to .o conversion
 
