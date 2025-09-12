@@ -46,10 +46,12 @@ functions we used from it
 ## Exit codes
 
 Here is the exit code table of the program. This exists mainly to ensure consistency in
-the exit codes of our program.
+the exit codes of our program. Input / user errors are all positive integers, while
+internal program errors are all negative integers.
 
 | Exit code | Macro | Description |
 | :---: | :---: | :---: |
 | 0 | EXIT_SUCCESS | Program executed successfully |
 | 1 | ERRC_ARGC | Invalid program argument count |
-| 2 | ERRC_MALLOC_FAIL | Malloc failed |
+| 2 | ERRC_MAP_FILE_EXTENSION | Provided map file name doesn't end with '.cub' |
+| -1 | ERRC_MALLOC_FAIL | Malloc failed |

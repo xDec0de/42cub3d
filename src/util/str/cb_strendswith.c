@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   cb_strendswith.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/08 18:09:27 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/12 06:23:53 by daniema3         ###   ########.fr       */
+/*   Created: 2025/09/12 06:08:29 by daniema3          #+#    #+#             */
+/*   Updated: 2025/09/12 06:18:57 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include "cb_msg.h"
+#include "cb_types.h"
 #include "cb_strutils.h"
 
-int	main(int argc, char **argv)
+bool	cb_strendswith(char *str, char *suffix)
 {
-	if (argc != 2)
+	size_t	suf_i;
+	size_t	str_i;
+
+	if (str == NULL || suffix == NULL)
+		return (false);
+	suf_i = cb_strlen(suffix);
+	str_i = cb_strlen(str);
+	if (suf_i > str_i)
+		return (false);
+	while (suf_i != 0)
 	{
-		printf(ERR_ARGC, argv[0]);
-		return (ERRC_ARGC);
+		suf_i--;
+		str_i--;
+		if (str[str_i] != suffix[suf_i])
+			return (false);
 	}
-	if (!cb_strendswith(argv[1], ".cub"))
-	{
-		printf(ERR_MAP_FILE_EXTENSION);
-		return (ERRC_MAP_FILE_EXTENSION);
-	}
-	return (EXIT_SUCCESS);
+	return (true);
 }

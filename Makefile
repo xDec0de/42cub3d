@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2025/09/12 04:50:13 by daniema3         ###   ########.fr        #
+#    Updated: 2025/09/12 06:20:43 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ SRCS +=	util/mem/cb_malloc.c
 
 # > ~ Utils - Strings
 
-SRCS +=	util/str/cb_strlen.c
+SRCS +=	util/str/cb_strendswith.c \
+		util/str/cb_strlen.c
 
 # > ~ Auto free & double free prevention (I'M NOT SURE IF WE CAN DO THIS)
 
