@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 18:09:27 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/12 03:23:20 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/09/12 03:29:40 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 	{
 		printf(ERR_ARGC, argv[0]);
-		return (1);
+		return (ERRC_ARGC);
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
