@@ -52,3 +52,4 @@ the exit codes of our program.
 | :---: | :---: | :---: |
 | 0 | EXIT_SUCCESS | Program executed successfully |
 | 1 | ERRC_ARGC | Invalid program argument count |
+| 2 | ERRC_MALLOC_FAIL | Malloc failed |
