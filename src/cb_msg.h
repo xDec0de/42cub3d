@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cb_msg.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:32:48 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/12 06:36:04 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:43:46 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CB_MSG_H
 # define CB_MSG_H
 
+void	cb_exitf(int print_res, int ec);
 void	cb_exit(char *msg, int ec);
 
 /*
