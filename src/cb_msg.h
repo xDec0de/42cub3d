@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:32:48 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/13 13:30:56 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/09/13 17:15:59 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,11 @@ void	cb_exit(char *msg, int ec);
 # define ERR_MALLOC_FAIL "\e[0;31mError\e[1;30m: \e[1;31mMalloc failed\033[0m\n"
 /** Internal error code: Malloc failed */
 # define ERRC_MALLOC_FAIL -1
+
+/** Internal error: Read failed */
+# define ERR_READ_FAIL "\e[0;31mError\e[1;30m: \e[1;31mRead failed\
+ \e[1;30m- \e[1;31m%s\033[0m\n"
+/** Internal error code: Read failed */
+# define ERRC_READ_FAIL -2
 
 #endif

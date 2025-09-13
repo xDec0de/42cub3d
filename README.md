@@ -56,3 +56,4 @@ internal program errors are all negative integers.
 | 2 | ERRC_MAP_FILE_EXTENSION | Provided map file name doesn't end with '.cub' |
 | 3 | ERRC_MAP_OPEN_MAP | Failed to open map file (Most likely it doesn't exist) |
 | -1 | ERRC_MALLOC_FAIL | Malloc failed |
+| -2 | ERRC_READ_FAIL | Read failed |

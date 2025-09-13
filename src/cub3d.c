@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 18:09:27 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/13 13:31:07 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/09/13 17:31:53 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,32 @@
 #include <unistd.h>
 #include "cb_msg.h"
 #include "cb_strutils.h"
+#include "cb_mem.h"
 
 char	**read_map_file(int fd)
 {
+	char	*buf;
+	char	**file;
+	int		read_res;
+
+	buf = cb_malloc(BUFSIZ);
 	if (fd < 0)
 		cb_exitf(printf(ERR_OPEN_MAP, strerror(errno)), ERRC_OPEN_MAP);
+	read_res = read(fd, buf, BUFSIZ);
+	while (read_res != 0)
+	{
+		if (read_res < 0)
+		{
+			close(fd);
+			cb_exitf(printf(ERR_READ_FAIL, strerror(errno)), ERRC_READ_FAIL);
+		}
+		read_res = read(fd, buf, BUFSIZ);
+	}
+	printf("%s\n", buf);
+	file = cb_split(buf, '\n');
+	free(buf);
 	close(fd);
-	return (NULL);
+	return (file);
 }
 
 int	main(int argc, char **argv)
@@ -39,6 +58,6 @@ int	main(int argc, char **argv)
 	game = cb_get();
 	map = read_map_file(open(argv[1], O_RDONLY));
 	(void) game;
-	(void) map;
+	cb_arrfree((void **) map);
 	cb_exit(NULL, EXIT_SUCCESS);
 }
