@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   malloc_wrapper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 19:32:28 by daniema3          #+#    #+#             */
-/*   Updated: 2025/08/17 19:33:23 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:07:12 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 static void	add_alloc(void *ptr)
 {
-	t_alloc_node	*first;
+	t_alloc_node	*lst;
 	t_alloc_node	*new;
 
-	first = get_alloc_list(NULL);
+	lst = get_alloc_list();
 	if (ptr == NULL)
 		return ;
 	new = __real_malloc(sizeof(t_alloc_node));
 	new->ptr = ptr;
-	new->next = first;
-	get_alloc_list(new);
+	new->next = NULL;
+	while (lst->next != NULL)
+		lst = lst->next;
+	lst->next = new;
 }
 
 void	*__wrap_malloc(size_t size)

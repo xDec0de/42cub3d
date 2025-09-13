@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 19:08:51 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/13 09:17:42 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:24:33 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ typedef struct s_alloc_node
 void			*__real_malloc(size_t size);
 void			__real_free(void *ptr);
 
-t_alloc_node	*get_alloc_list(t_alloc_node *first);
+t_alloc_node	*get_alloc_list(void);
 
-void			*cb_malloc(size_t size);
+# define LEAKS_FOUND "❌ \e[1;31mRemoved \e[1;33m%u \e[1;31m\
+memory leak(s)\033[0m\n"
+# define NO_LEAKS_FOUND "✅ \e[1;32mNo memory leaks found\033[0m\n"
 
 #endif

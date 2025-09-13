@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 09:15:50 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/13 09:29:53 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/09/13 12:03:16 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_game	*cb_init(void)
 
 t_game	*cb_get(void)
 {
-	static t_game *game = NULL;
+	static t_game	*game = NULL;
 
 	if (game == NULL)
 		game = cb_init();
