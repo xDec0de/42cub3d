@@ -25,7 +25,7 @@ For this project, we are allowed to use some of the functions we already know.
 | [malloc](https://linux.die.net/man/3/malloc) | stdlib.h | Allocate dynamic memory | ✅ |
 | [free](https://linux.die.net/man/3/free) | stdlib.h | Free dynamic memory | ✅ |
 | [perror](https://linux.die.net/man/3/perror) | errno.h | Print system error message | ❌ |
-| [strerror](https://linux.die.net/man/3/strerror) | string.h | Return string describing error number | ❌ |
+| [strerror](https://linux.die.net/man/3/strerror) | string.h | Return string describing error number | ✅ |
 | [exit](https://linux.die.net/man/3/exit) | stdlib.h | Cause normal process termination | ✅ |
 | [gettimeofday](https://linux.die.net/man/2/gettimeofday) | sys/time.h | Get current system time | ❌ |
 
@@ -54,4 +54,5 @@ internal program errors are all negative integers.
 | 0 | EXIT_SUCCESS | Program executed successfully |
 | 1 | ERRC_ARGC | Invalid program argument count |
 | 2 | ERRC_MAP_FILE_EXTENSION | Provided map file name doesn't end with '.cub' |
+| 3 | ERRC_MAP_OPEN_MAP | Failed to open map file (Most likely it doesn't exist) |
 | -1 | ERRC_MALLOC_FAIL | Malloc failed |

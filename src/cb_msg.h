@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:32:48 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/13 12:43:46 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/09/13 13:30:56 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ void	cb_exit(char *msg, int ec);
  file extension. Map files must have the '.cub' extension\033[0m\n"
 /** User error code: Provided map file name doesn't end with '.cub' */
 # define ERRC_MAP_FILE_EXTENSION 2
+
+# define ERR_OPEN_MAP "\e[0;31mError\e[1;30m: \e[1;31mCould\
+ not open map file \e[1;30m- \e[1;31m%s\033[0m\n"
+# define ERRC_OPEN_MAP 3
 
 /*
  - Internal errors

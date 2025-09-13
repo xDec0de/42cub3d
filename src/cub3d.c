@@ -6,24 +6,39 @@
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 18:09:27 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/13 12:45:45 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/09/13 13:31:07 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <fcntl.h>
+#include <string.h>
+#include <errno.h>
+#include <unistd.h>
 #include "cb_msg.h"
 #include "cb_strutils.h"
+
+char	**read_map_file(int fd)
+{
+	if (fd < 0)
+		cb_exitf(printf(ERR_OPEN_MAP, strerror(errno)), ERRC_OPEN_MAP);
+	close(fd);
+	return (NULL);
+}
 
 int	main(int argc, char **argv)
 {
 	t_game	*game;
+	char	**map;
 
 	if (argc != 2)
 		cb_exitf(printf(ERR_ARGC, argv[0]), ERRC_ARGC);
 	if (!cb_strendswith(argv[1], ".cub"))
 		cb_exit(ERR_MAP_FILE_EXTENSION, ERRC_MAP_FILE_EXTENSION);
 	game = cb_get();
+	map = read_map_file(open(argv[1], O_RDONLY));
 	(void) game;
+	(void) map;
 	cb_exit(NULL, EXIT_SUCCESS);
 }
