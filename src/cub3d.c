@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 18:09:27 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/12 06:23:53 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/09/13 10:10:32 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 int	main(int argc, char **argv)
 {
+	t_game	*game;
+
 	if (argc != 2)
 	{
 		printf(ERR_ARGC, argv[0]);
@@ -27,5 +29,7 @@ int	main(int argc, char **argv)
 		printf(ERR_MAP_FILE_EXTENSION);
 		return (ERRC_MAP_FILE_EXTENSION);
 	}
-	return (EXIT_SUCCESS);
+	game = cb_get();
+	(void) game;
+	cb_exit(NULL, EXIT_SUCCESS);
 }
