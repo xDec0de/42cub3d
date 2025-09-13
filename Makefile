@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+         #
+#    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2025/09/12 06:20:43 by daniema3         ###   ########.fr        #
+#    Updated: 2025/09/13 09:29:16 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ CFLAGS =	-Wall -Werror -Wextra \
 # > ~ Main project files
 
 SRCS =	cub3d.c \
+		cb_getter.c \
 		cb_exit.c
 
 # > ~ Utils - Memory

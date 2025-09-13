@@ -1,50 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cb_types.h                                         :+:      :+:    :+:   */
+/*   cb_mem.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 04:18:46 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/13 09:28:25 by daniema3         ###   ########.fr       */
+/*   Created: 2025/09/13 09:18:03 by daniema3          #+#    #+#             */
+/*   Updated: 2025/09/13 09:18:34 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CB_TYPES_H
-# define CB_TYPES_H
+#ifndef CB_MEM_H
+# define CB_MEM_H
 
-# include <stdbool.h>
-# include <stddef.h>
+# include "cb_types.h"
 
-typedef struct s_color
-{
-	char	r;
-	char	g;
-	char	b;
-}	t_color;
-
-typedef struct s_map
-{
-	char	**grid;
-	int		width;
-	int		height;
-	t_color	ceil_col;
-	t_color	floor_col;
-}	t_map;
-
-typedef struct s_player
-{
-	int		x;
-	int		y;
-	char	dir;
-}	t_player;
-
-typedef struct s_game
-{
-	t_map		map;
-	t_player	player;
-}	t_game;
-
-t_game	*cb_get(void);
+void	*cb_malloc(size_t size);
 
 #endif

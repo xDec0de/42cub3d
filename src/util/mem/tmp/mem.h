@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mem.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/17 19:08:51 by daniema3          #+#    #+#             */
-/*   Updated: 2025/08/17 19:39:47 by daniema3         ###   ########.fr       */
+/*   Updated: 2025/09/13 09:17:42 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ void			*__real_malloc(size_t size);
 void			__real_free(void *ptr);
 
 t_alloc_node	*get_alloc_list(t_alloc_node *first);
+
+void			*cb_malloc(size_t size);
 
 #endif
