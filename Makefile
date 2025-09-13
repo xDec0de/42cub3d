@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2025/09/13 17:03:38 by daniema3         ###   ########.fr        #
+#    Updated: 2025/09/13 17:31:15 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,8 @@ SRCS =	cub3d.c \
 
 # > ~ Utils - Memory
 
-SRCS +=	util/mem/cb_malloc.c
+SRCS +=	util/mem/cb_arrfree.c \
+		util/mem/cb_malloc.c
 
 # > ~ Utils - Strings
 
