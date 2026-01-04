@@ -22,40 +22,40 @@ TEST_DIR = ./test
 
 CC = cc
 
-INCLUDE_DIRS =	-I$(SRC_DIR) \
-				-I$(SRC_DIR)/parser \
-				-I$(SRC_DIR)/util/mem \
-				-I$(SRC_DIR)/util/str
+INCLUDE_DIRS =  -I$(SRC_DIR) \
+                -I$(SRC_DIR)/parser \
+                -I$(SRC_DIR)/util/mem \
+                -I$(SRC_DIR)/util/str
 
-CFLAGS =	-Wall -Werror -Wextra \
-			-g3 \
-			-fdiagnostics-color=always \
-			-Wl,--wrap=malloc \
-			-Wl,--wrap=free \
-			$(INCLUDE_DIRS)
+CFLAGS =    -Wall -Werror -Wextra \
+            -g3 \
+            -fdiagnostics-color=always \
+            -Wl,--wrap=malloc \
+            -Wl,--wrap=free \
+            $(INCLUDE_DIRS)
 
 # > ~ Main project files
 
-SRCS =	cub3d.c \
-		cb_getter.c \
-		cb_exit.c
+SRCS =  cub3d.c \
+        cb_getter.c \
+        cb_exit.c
 
 # > ~ Utils - Memory
 
-SRCS +=	util/mem/cb_arrfree.c \
-		util/mem/cb_malloc.c
+SRCS += util/mem/cb_arrfree.c \
+        util/mem/cb_malloc.c
 
 # > ~ Utils - Strings
 
-SRCS +=	util/str/cb_split.c \
-		util/str/cb_strendswith.c \
-		util/str/cb_strlen.c
+SRCS += util/str/cb_split.c \
+        util/str/cb_strendswith.c \
+        util/str/cb_strlen.c
 
 # > ~ Auto free & double free prevention (I'M NOT SURE IF WE CAN DO THIS)
 
-SRCS +=	util/mem/tmp/free_wrapper.c \
-		util/mem/tmp/get_alloc_list.c \
-		util/mem/tmp/malloc_wrapper.c
+SRCS += util/mem/tmp/free_wrapper.c \
+        util/mem/tmp/get_alloc_list.c \
+        util/mem/tmp/malloc_wrapper.c
 
 # > ~ .c to .o conversion
 
@@ -84,13 +84,15 @@ ERRNAME = $(BRED)$(NAME)$(RED)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
-	@echo -n "\r⏳ $(YLW)Compiling $(BYLW)$(notdir $<)$(GRAY)...$(RES)"
+	@printf "\r⏳ $(YLW)Compiling $(BYLW)$(notdir $<)$(GRAY)...$(RES)"
 	@{\
 		ERR=$$( ($(CC) $(CFLAGS) -c $< -o $@) 2>&1 );\
 		if [ $$? -ne 0 ]; then\
-			echo -n "\r❌ $(RED)Failed to compile $(BRED)$@$(GRAY):$(RES)";\
-			echo "\n$$ERR";\
+			printf "\r\n❌ $(RED)Failed to compile $(BRED)$(notdir $@)$(GRAY):$(RES)\n";\
+			echo "$$ERR";\
 			exit 1;\
+		else\
+			printf "\r✅ $(GREEN)Compiled $(BGREEN)$(notdir $<)$(RES)\n";\
 		fi;\
 	}
 
@@ -98,32 +100,27 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -lreadline
-	@echo -n "\r✅ $(OKNAME) successfully compiled!$(RES)"
-	@echo 
+	@printf "\r✅ $(OKNAME) successfully compiled!$(RES)\n"
 
 # > ~ Cleaning
 
 clean:
-	@echo -n "\r⏳ $(YLW)Removing $(WNAME) objs$(GRAY)...$(RES)"
+	@printf "\r⏳ $(YLW)Removing $(WNAME) objs$(GRAY)...$(RES)"
 	@rm -rf $(OBJ_DIR)
-	@echo -n "\r✅ $(GREEN)Removed $(OKNAME) objs$(GRAY).$(RES)"
-	@echo 
-	@echo -n "\r⏳ $(YLW)Removing $(WNAME) coverage files$(GRAY)...$(RES)"
+	@printf "\r✅ $(GREEN)Removed $(OKNAME) objs$(GRAY).$(RES)\n"
+	@printf "\r⏳ $(YLW)Removing $(WNAME) coverage files$(GRAY)...$(RES)"
 	@rm -rf $(COV_DIR)
 	@rm -rf *.gcda *.gcno
-	@echo -n "\r✅ $(GREEN)Removed $(OKNAME) coverage files$(GRAY).$(RES)"
-	@echo 
-	@echo -n "\r⏳ $(YLW)Removing $(WNAME) logs$(GRAY)...$(RES)"
+	@printf "\r✅ $(GREEN)Removed $(OKNAME) coverage files$(GRAY).$(RES)\n"
+	@printf "\r⏳ $(YLW)Removing $(WNAME) logs$(GRAY)...$(RES)"
 	@rm -rf $(LOG_DIR)
-	@echo -n "\r✅ $(GREEN)Removed $(OKNAME) logs$(GRAY).$(RES)"
-	@echo 
+	@printf "\r✅ $(GREEN)Removed $(OKNAME) logs$(GRAY).$(RES)\n"
 
 fclean: clean
-	@echo -n "\r⏳ $(YLW)Removing $(WNAME) executables$(GRAY)...$(RES)"
+	@printf "\r⏳ $(YLW)Removing $(WNAME) executables$(GRAY)...$(RES)"
 	@rm -rf $(NAME)
 	@rm -rf $(TEST_NAME)
-	@echo -n "\r✅ $(GREEN)Removed $(OKNAME) executables$(GRAY).$(RES)"
-	@echo 
+	@printf "\r✅ $(GREEN)Removed $(OKNAME) executables$(GRAY).$(RES)\n"
 
 # > ~ Clean & compile
 
@@ -136,13 +133,13 @@ NORM_ERRFILE = $(LOG_DIR)/norm_errors.txt
 norm:
 	@mkdir -p $(LOG_DIR)
 	@rm -rf $(NORM_ERRFILE)
-	@echo -n "\r⏳ $(YLW)Executing norminette on $(WNAME)$(GRAY)...$(RES)"
+	@printf "\r⏳ $(YLW)Executing norminette on $(WNAME)$(GRAY)...$(RES)"
 	@norminette $(SRC_DIR) | grep "Error" > $(NORM_ERRFILE) || true
 	@if [ -s $(NORM_ERRFILE) ]; then \
-		echo -n "\r❌ $(RED)Norm errors found on $(ERRNAME)$(GRAY):$(RES)\n";\
-		cat $(NORM_ERRFILE) | sed 's/^Error:/-/'; \
+		printf "\r❌ $(RED)Norm errors found on $(ERRNAME)$(GRAY):$(RES)\n";\
+		sed 's/^Error:/  - /' $(NORM_ERRFILE); \
 		exit 1; \
 	else \
-		echo -n "\r✅ $(GREEN)No norm errors found on $(OKNAME)!$(RES)\n"; \
+		printf "\r✅ $(GREEN)No norm errors found on $(OKNAME)!$(RES)\n"; \
 		rm -rf $(NORM_ERRFILE); \
 	fi
