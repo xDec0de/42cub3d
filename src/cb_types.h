@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_types.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:18:46 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/13 09:28:25 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/01/07 12:39:42 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 typedef struct s_color
 {
-	char	r;
-	char	g;
-	char	b;
+	int	r;
+	int	g;
+	int	b;
 }	t_color;
 
 typedef struct s_map
