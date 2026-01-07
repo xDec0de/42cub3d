@@ -6,13 +6,14 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:08:04 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/07 09:21:55 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/07 12:39:08 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
+#include "cb_mem.h"
 
-t_player	init_player(void)
+t_player	fake_init_player(void)
 {
 	t_player	player;
 
@@ -22,11 +23,11 @@ t_player	init_player(void)
 	return (player);
 }
 
-t_map	init_map(void)
+t_map	fake_init_map(void)
 {
 	t_map	map;
 
-	map.grid = (char *[])
+	static char	*grid[] =
 	{
 		"11111",
 		"10001",
@@ -35,6 +36,8 @@ t_map	init_map(void)
 		"11111",
 		NULL
 	};
+
+	map.grid = grid;
 	map.ceil_col.r = 255;
 	map.ceil_col.g = 0;
 	map.ceil_col.b = 0;
@@ -49,8 +52,8 @@ t_game	*fake_cb_init(void)
 	t_game	*game;
 
 	game = cb_malloc(sizeof(t_game));
-	game->map = init_map();
-	game->player = init_player();
+	game->map = fake_init_map();
+	game->player = fake_init_player();
 	return (game);
 }
 
