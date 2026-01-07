@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+         #
+#    By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2025/09/13 17:31:15 by daniema3         ###   ########.fr        #
+#    Updated: 2026/01/07 09:32:13 by rexposit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,40 +22,40 @@ TEST_DIR = ./test
 
 CC = cc
 
-INCLUDE_DIRS =  -I$(SRC_DIR) \
-                -I$(SRC_DIR)/parser \
-                -I$(SRC_DIR)/util/mem \
-                -I$(SRC_DIR)/util/str
+INCLUDE_DIRS =	-I$(SRC_DIR) \
+				-I$(SRC_DIR)/parser \
+				-I$(SRC_DIR)/util/mem \
+				-I$(SRC_DIR)/util/str
 
-CFLAGS =    -Wall -Werror -Wextra \
-            -g3 \
-            -fdiagnostics-color=always \
-            -Wl,--wrap=malloc \
-            -Wl,--wrap=free \
-            $(INCLUDE_DIRS)
+CFLAGS =	-Wall -Werror -Wextra \
+			-g3 \
+			-fdiagnostics-color=always \
+			-Wl,--wrap=malloc \
+			-Wl,--wrap=free \
+			$(INCLUDE_DIRS)
 
 # > ~ Main project files
 
-SRCS =  cub3d.c \
-        cb_getter.c \
-        cb_exit.c
+SRCS =	cub3d.c \
+		cb_getter.c \
+		cb_exit.c
 
 # > ~ Utils - Memory
 
-SRCS += util/mem/cb_arrfree.c \
-        util/mem/cb_malloc.c
+SRCS +=	util/mem/cb_arrfree.c \
+		util/mem/cb_malloc.c
 
 # > ~ Utils - Strings
 
 SRCS += util/str/cb_split.c \
-        util/str/cb_strendswith.c \
-        util/str/cb_strlen.c
+		util/str/cb_strendswith.c \
+		util/str/cb_strlen.c
 
 # > ~ Auto free & double free prevention (I'M NOT SURE IF WE CAN DO THIS)
 
-SRCS += util/mem/tmp/free_wrapper.c \
-        util/mem/tmp/get_alloc_list.c \
-        util/mem/tmp/malloc_wrapper.c
+SRCS +=	util/mem/tmp/free_wrapper.c \
+		util/mem/tmp/get_alloc_list.c \
+		util/mem/tmp/malloc_wrapper.c
 
 # > ~ .c to .o conversion
 
