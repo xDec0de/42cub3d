@@ -6,15 +6,16 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:07:46 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/07 09:16:44 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/07 13:04:16 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+#include "cb_render.h"
+#include <stdio.h>
 
 void	render(void)
 {
-	t_map	*game;
+	t_game	*game;
 
 	game = fake_cb_get();
 }
