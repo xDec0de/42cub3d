@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_msg.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:32:48 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/13 17:15:59 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/01/15 18:54:17 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,11 @@ void	cb_exit(char *msg, int ec);
  \e[1;30m- \e[1;31m%s\033[0m\n"
 /** Internal error code: Read failed */
 # define ERRC_READ_FAIL -2
+
+/** Internal error: MLX init failed */
+# define ERR_MLX_INIT_FAIL "\e[0;31mError\e[1;30m: \e[1;31mMLX init\
+ failed\033[0m\n"
+/** Internal error code: MLX init failed */
+# define ERRC_MLX_INIT_FAIL -3
 
 #endif
