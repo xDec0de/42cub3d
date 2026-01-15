@@ -6,11 +6,11 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:08:04 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/07 12:39:08 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/07 19:22:16 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
+#include "cb_render.h"
 #include "cb_mem.h"
 
 t_player	fake_init_player(void)
