@@ -6,7 +6,7 @@
 #    By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/01/07 09:32:13 by rexposit         ###   ########.fr        #
+#    Updated: 2026/01/07 11:31:07 by rexposit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ CC = cc
 
 INCLUDE_DIRS =	-I$(SRC_DIR) \
 				-I$(SRC_DIR)/parser \
+				-I$(SRC_DIR)/render \
 				-I$(SRC_DIR)/util/mem \
 				-I$(SRC_DIR)/util/str
 
@@ -39,6 +40,11 @@ CFLAGS =	-Wall -Werror -Wextra \
 SRCS =	cub3d.c \
 		cb_getter.c \
 		cb_exit.c
+
+# > ~ Src - Render
+
+SRCS +=	render/render.c \
+		render/fake_getter.c
 
 # > ~ Utils - Memory
 
