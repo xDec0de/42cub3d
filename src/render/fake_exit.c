@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 19:51:24 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/15 19:59:47 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/15 20:53:27 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,14 @@
 
 void	fake_free_game(t_game *game)
 {
-	free(game->mlx);
-	free(game->window);
+	if (game->mlx && game->window)
+		mlx_destroy_window(game->mlx, game->window);
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+		game->mlx = NULL;
+	}
 	free(game);
 }
 
