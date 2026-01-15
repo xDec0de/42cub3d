@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.h                                           :+:      :+:    :+:   */
+/*   cb_render.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:10:05 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/07 09:38:06 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/07 13:10:09 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RENDER_H
-# define RENDER_H
+#ifndef CB_RENDER_H
+# define CB_RENDER_H
 
 # include <stdbool.h>
 # include <stddef.h>
