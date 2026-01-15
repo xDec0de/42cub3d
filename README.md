@@ -57,4 +57,4 @@ internal program errors are all negative integers.
 | 3 | ERRC_MAP_OPEN_MAP | Failed to open map file (Most likely it doesn't exist) |
 | -1 | ERRC_MALLOC_FAIL | Malloc failed |
 | -2 | ERRC_READ_FAIL | Read failed |
-| -3 | ERRC_MLX_INIT_FAIL | MLX init failed |
+| -3 | ERRC_MLX_INIT_FAIL | MLX initialization failure |
