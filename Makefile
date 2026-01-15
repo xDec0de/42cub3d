@@ -6,7 +6,7 @@
 #    By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/01/15 17:07:26 by rexposit         ###   ########.fr        #
+#    Updated: 2026/01/15 19:57:33 by rexposit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ SRCS =	cub3d.c \
 # > ~ Src - Render
 
 SRCS +=	render/render.c \
-		render/fake_getter.c
+		render/fake_getter.c \
+		render/fake_exit.c
 
 # > ~ Utils - Memory
 
