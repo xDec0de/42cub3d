@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:18:46 by daniema3          #+#    #+#             */
-/*   Updated: 2026/01/07 19:19:40 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/15 22:08:28 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_player
 
 typedef struct s_game
 {
+	void		*mlx;
+	void		*window;
 	t_map		map;
 	t_player	player;
 }	t_game;
