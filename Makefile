@@ -6,7 +6,7 @@
 #    By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/01/07 11:31:07 by rexposit         ###   ########.fr        #
+#    Updated: 2026/01/15 17:07:26 by rexposit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ NAME = cub3d
 
 SRC_DIR = ./src
 OBJ_DIR = ./objs
+MLX_DIR = ./minilibx-linux
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 LOG_DIR = ./logs
 TEST_DIR = ./test
@@ -26,7 +28,8 @@ INCLUDE_DIRS =	-I$(SRC_DIR) \
 				-I$(SRC_DIR)/parser \
 				-I$(SRC_DIR)/render \
 				-I$(SRC_DIR)/util/mem \
-				-I$(SRC_DIR)/util/str
+				-I$(SRC_DIR)/util/str \
+				-I$(MLX_DIR)
 
 CFLAGS =	-Wall -Werror -Wextra \
 			-g3 \
@@ -105,7 +108,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -lreadline
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLX_FLAGS) -lreadline
 	@printf "\r✅ $(OKNAME) successfully compiled!$(RES)\n"
 
 # > ~ Cleaning
