@@ -32,5 +32,22 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Install X11 deps (for MiniLibX)
+        run: |
+          apt-get update
+          apt-get install -y xorg-dev libx11-dev libxext-dev libbsd-dev zlib1g-dev
+
+      - name: Build MiniLibX
+        env:
+          MLX_DIR: minilibx-linux
+        run: |
+          if [ -d "$MLX_DIR" ]; then
+            make -C "$MLX_DIR"
+          else
+            echo "MiniLibX directory not found: $MLX_DIR"
+            echo "Edit MLX_DIR in the workflow to match your repo."
+            exit 1
+          fi
+
       - name: Compile
         run: make
