@@ -34,7 +34,10 @@ table only contains those functions we used from it.
 
 | Name | Basic description |
 | :---: | :---: |
-| ... | ... |
+| mlx_init | Initializes the graphical context |
+| mlx_new_window | Creates a new window |
+| mlx_loop | Starts the event loop |
+
 
 And the whole math library. Once again, this table only contains those
 functions we used from it
