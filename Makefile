@@ -6,7 +6,7 @@
 #    By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/01/21 11:56:09 by rexposit         ###   ########.fr        #
+#    Updated: 2026/01/21 16:10:11 by rexposit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SRCS +=	render/render.c \
 # > ~ Src - Events
 
 SRCS +=	events/events.c \
+		events/key_handlers.c
 
 # > ~ Utils - Memory
 
