@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cb_render.h                                        :+:      :+:    :+:   */
+/*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/07 09:10:05 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/21 11:53:43 by rexposit         ###   ########.fr       */
+/*   Created: 2026/01/21 11:22:24 by rexposit          #+#    #+#             */
+/*   Updated: 2026/01/21 12:04:31 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CB_RENDER_H
-# define CB_RENDER_H
+#include "cb_events.h"
 
-# include <stdbool.h>
-# include <stddef.h>
-# include "./cb_types.h"
-# include "./cb_msg.h"
-# include "cb_events.h"
-# include <mlx.h>
-
-# define WINDOW_WIDTH 800
-# define WINDOW_HEIGHT 600
-# define TILE_SIZE 64
-
-void	render(void);
-t_game	*fake_cb_get(void);
-void	fake_cb_exit(char *msg, int ec);
-
-#endif
+int	close_window(void)
+{
+	fake_cb_exit(NULL, 0);
+	return (0);
+}

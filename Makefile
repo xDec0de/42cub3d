@@ -6,7 +6,7 @@
 #    By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/01/15 19:57:33 by rexposit         ###   ########.fr        #
+#    Updated: 2026/01/21 11:56:09 by rexposit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ CC = cc
 INCLUDE_DIRS =	-I$(SRC_DIR) \
 				-I$(SRC_DIR)/parser \
 				-I$(SRC_DIR)/render \
+				-I$(SRC_DIR)/events \
 				-I$(SRC_DIR)/util/mem \
 				-I$(SRC_DIR)/util/str \
 				-I$(MLX_DIR)
@@ -49,6 +50,10 @@ SRCS =	cub3d.c \
 SRCS +=	render/render.c \
 		render/fake_getter.c \
 		render/fake_exit.c
+
+# > ~ Src - Events
+
+SRCS +=	events/events.c \
 
 # > ~ Utils - Memory
 
