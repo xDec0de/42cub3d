@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:32:48 by daniema3          #+#    #+#             */
-/*   Updated: 2026/01/15 18:54:17 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/21 17:33:25 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,11 @@ void	cb_exit(char *msg, int ec);
  failed\033[0m\n"
 /** Internal error code: MLX init failed */
 # define ERRC_MLX_INIT_FAIL -3
+
+/** Internal error: Window init failed */
+# define ERR_WINDOW_INIT_FAIL "\e[0;31mError\e[1;30m: \e[1;31mWindow init\
+ failed\033[0m\n"
+/** Internal error code: Window init failed */
+# define ERRC_WINDOW_INIT_FAIL -4
 
 #endif

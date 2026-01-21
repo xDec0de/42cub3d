@@ -62,3 +62,4 @@ internal program errors are all negative integers.
 | -1 | ERRC_MALLOC_FAIL | Malloc failed |
 | -2 | ERRC_READ_FAIL | Read failed |
 | -3 | ERRC_MLX_INIT_FAIL | MLX initialization failure |
+| -4 | ERRC_WINDOW_INIT_FAIL | Window intialization failure |
