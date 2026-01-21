@@ -37,6 +37,7 @@ table only contains those functions we used from it.
 | mlx_init | Initializes the graphical context |
 | mlx_new_window | Creates a new window |
 | mlx_hook | Registers an event handler on a window |
+| mlx_key_hook | Registers a keyboard event handler on a window |
 | mlx_loop | Starts the event loop |
 
 
