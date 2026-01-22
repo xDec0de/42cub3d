@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:32:48 by daniema3          #+#    #+#             */
-/*   Updated: 2026/01/21 17:33:25 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/22 10:38:39 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,11 @@ void	cb_exit(char *msg, int ec);
  failed\033[0m\n"
 /** Internal error code: Window init failed */
 # define ERRC_WINDOW_INIT_FAIL -4
+
+/** Internal error: Image creation failed */
+# define ERR_IMG_CREATION_FAIL "\e[0;31mError\e[1;30m: \e[1;31mImage creation\
+ failed\033[0m\n"
+/** Internal error code: Image creation failed */
+# define ERRC_IMG_CREATION_FAIL -5
 
 #endif

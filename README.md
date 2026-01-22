@@ -39,6 +39,10 @@ table only contains those functions we used from it.
 | mlx_hook | Registers an event handler on a window |
 | mlx_key_hook | Registers a keyboard event handler on a window |
 | mlx_loop | Starts the event loop |
+| mlx_new_image | Creates a new empty image buffer |
+| mlx_get_data_addr | Returns a pointer to an image’s pixel buffer |
+| my_mlx_pixel_put | Writes a single pixel into an image buffer at the given position |
+| mlx_put_image_to_window | Displays an image buffer in a window at the given position |
 
 
 And the whole math library. Once again, this table only contains those
@@ -64,3 +68,4 @@ internal program errors are all negative integers.
 | -2 | ERRC_READ_FAIL | Read failed |
 | -3 | ERRC_MLX_INIT_FAIL | MLX initialization failure |
 | -4 | ERRC_WINDOW_INIT_FAIL | Window intialization failure |
+| -5 | ERRC_IMG_CREATION_FAIL | Image creation failure |
