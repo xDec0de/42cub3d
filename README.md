@@ -41,7 +41,6 @@ table only contains those functions we used from it.
 | mlx_loop | Starts the event loop |
 | mlx_new_image | Creates a new empty image buffer |
 | mlx_get_data_addr | Returns a pointer to an image’s pixel buffer |
-| my_mlx_pixel_put | Writes a single pixel into an image buffer at the given position |
 | mlx_put_image_to_window | Displays an image buffer in a window at the given position |
 
 
