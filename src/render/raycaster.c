@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 10:19:14 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/27 18:07:02 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 23:24:25 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,38 @@ static bool	touch(float px, float py, t_game *game)
 		return (false);
 }
 
-void	raycaster(t_game *game)
+void	draw_line(t_game *game, float start_x)
 {
-	float	ray_x;
-	float	ray_y;
 	float	cos_angle;
 	float	sin_angle;
+	float	ray_x;
+	float	ray_y;
 
+	cos_angle = cos(start_x);
+	sin_angle = sin(start_x);
 	ray_x = game->player.x;
 	ray_y = game->player.y;
-	get_angle_vectors(&game->player, &cos_angle, &sin_angle);
 	while (!touch(ray_x, ray_y, game))
 	{
 		my_mlx_pixel_put(&game->data, ray_x, ray_y, 0xFF0000);
 		ray_x += cos_angle;
 		ray_y += sin_angle;
+	}
+}
+
+void	raycaster(t_game *game)
+{
+	float	fraction;
+	float	start_x;
+	int		i;
+
+	fraction = PI / 3 / WINDOW_WIDTH;
+	start_x = game->player.angle - PI / 6;
+	i = 0;
+	while (i < WINDOW_WIDTH)
+	{
+		draw_line(game, start_x);
+		start_x += fraction;
+		i++;
 	}
 }
