@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:08:04 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/27 12:24:46 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 18:06:34 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_map	fake_init_map(void)
 	grid[9] = "1111111111111111";
 	grid[10] = NULL;
 	map.grid = grid;
+	map.height = 10;
+	map.width = 16;
 	map.ceil_col.r = 255;
 	map.ceil_col.g = 0;
 	map.ceil_col.b = 0;

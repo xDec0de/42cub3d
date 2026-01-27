@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:22:24 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/27 13:42:28 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 17:55:10 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static	void	update_player_angle(t_player *player, float angle_speed)
 		player->angle = 2 * PI;
 }
 
-static	void	get_angle_vectors(t_player *player, float *cos_a, float *sin_a)
+void	get_angle_vectors(t_player *player, float *cos_a, float *sin_a)
 {
 	*cos_a = cos(player->angle);
 	*sin_a = sin(player->angle);

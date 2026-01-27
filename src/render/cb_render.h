@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:10:05 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/27 11:52:38 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 17:59:42 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	draw_square(int x, int y, int size, int color);
 void	draw_map(t_map *map);
 void	clear_image(t_game *game);
+void	raycaster(t_game *game);
 
 #endif
