@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:10:05 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/22 12:24:52 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 01:56:08 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
 # define TILE_SIZE 64
+# define PI 3.14159265359
 
 void	render(void);
 t_game	*fake_cb_get(void);
 void	fake_cb_exit(char *msg, int ec);
+int		draw_loop(t_game *game);
 
 #endif

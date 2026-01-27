@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:22:24 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/21 17:30:23 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 01:42:58 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,16 @@ int	handle_key(int key, t_game *game)
 		close_window();
 	(void)game;
 	return (0);
+}
+
+void	move_player(t_player *player, int speed)
+{
+	if (player->key_up)
+		player->y -= speed;
+	if (player->key_down)
+		player->y += speed;
+	if (player->key_right)
+		player->x += speed;
+	if (player->key_left)
+		player->x -= speed;
 }

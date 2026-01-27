@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:21:38 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/21 17:25:50 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/26 12:07:57 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,15 @@
 # include <X11/keysym.h>
 
 # define KEY_ESC XK_Escape
+# define KEY_W XK_w
+# define KEY_A XK_a
+# define KEY_S XK_s
+# define KEY_D XK_d
 
-int	close_window(void);
-int	handle_key(int key, t_game *game);
+int		close_window(void);
+int		handle_key(int key, t_game *game);
+int		key_press(int key, t_player *player);
+int		key_release(int key, t_player *player);
+void	move_player(t_player *player, int speed);
 
 #endif

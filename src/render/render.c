@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:07:46 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/26 11:44:19 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 01:55:54 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,33 @@ void	draw_square(int x, int y, int size, int color)
 	}
 }
 
+void	clear_image(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < WINDOW_HEIGHT)
+	{
+		x = 0;
+		while (x < WINDOW_WIDTH)
+		{
+			my_mlx_pixel_put(&game->data, x, y, 0);
+			x++;
+		}
+		y++;
+	}
+}
+
+int	draw_loop(t_game *game)
+{
+	move_player(&game->player, 5);
+	clear_image(game);
+	draw_square(game->player.x, game->player.y, 5, 0x00FF00);
+	mlx_put_image_to_window(game->mlx, game->window, game->img, 0, 0);
+	return (0);
+}
+
 void	render(void)
 {
 	t_game	*game;
@@ -56,9 +83,10 @@ void	render(void)
 		fake_cb_exit(NULL, ERRC_IMG_CREATION_FAIL);
 	game->data.addr = mlx_get_data_addr(game->img, &game->data.bits_per_pixel,
 			&game->data.line_length, &game->data.endian);
-	draw_square(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 10, 0x00FF00);
-	mlx_put_image_to_window(game->mlx, game->window, game->img, 0, 0);
 	mlx_hook(game->window, 17, 0L, close_window, game);
 	mlx_key_hook(game->window, handle_key, game);
+	mlx_hook(game->window, 2, 1L << 0, key_press, &game->player);
+	mlx_hook(game->window, 3, 1L << 1, key_release, &game->player);
+	mlx_loop_hook(game->mlx, draw_loop, game);
 	mlx_loop(game->mlx);
 }

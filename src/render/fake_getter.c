@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:08:04 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/15 19:00:57 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/26 11:48:53 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ t_player	fake_init_player(void)
 	t_player	player;
 
 	player.dir = 'E';
-	player.x = 1;
-	player.y = 2;
+	player.x = WINDOW_WIDTH / 2;
+	player.y = WINDOW_HEIGHT / 2;
+	player.key_up = false;
+	player.key_down = false;
+	player.key_right = false;
+	player.key_left = false;
 	return (player);
 }
 
