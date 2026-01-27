@@ -37,11 +37,11 @@ table only contains those functions we used from it.
 | mlx_init | Initializes the graphical context |
 | mlx_new_window | Creates a new window |
 | mlx_hook | Registers an event handler on a window |
-| mlx_key_hook | Registers a keyboard event handler on a window |
 | mlx_loop | Starts the event loop |
 | mlx_new_image | Creates a new empty image buffer |
 | mlx_get_data_addr | Returns a pointer to an image’s pixel buffer |
 | mlx_put_image_to_window | Displays an image buffer in a window at the given position |
+| mlx_loop_hook | Registers a function that is called repeatedly on each loop iteration |
 
 
 And the whole math library. Once again, this table only contains those
