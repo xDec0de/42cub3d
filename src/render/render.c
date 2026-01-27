@@ -6,62 +6,18 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:07:46 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/27 11:07:36 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:50:47 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cb_render.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	if (x >= WINDOW_WIDTH || y >= WINDOW_HEIGHT || x < 0 || y < 0)
-		return ;
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
-
-void	draw_square(int x, int y, int size, int color)
-{
-	t_game	*game;
-	int		i;
-
-	game = fake_cb_get();
-	i = 0;
-	while (i < size)
-	{
-		my_mlx_pixel_put(&game->data, x + i, y, color);
-		my_mlx_pixel_put(&game->data, x, y + i, color);
-		my_mlx_pixel_put(&game->data, x + size, y + i, color);
-		my_mlx_pixel_put(&game->data, x + i, y + size, color);
-		i++;
-	}
-}
-
-void	clear_image(t_game *game)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < WINDOW_HEIGHT)
-	{
-		x = 0;
-		while (x < WINDOW_WIDTH)
-		{
-			my_mlx_pixel_put(&game->data, x, y, 0);
-			x++;
-		}
-		y++;
-	}
-}
-
 int	draw_loop(t_game *game)
 {
 	move_player(&game->player, 5);
 	clear_image(game);
-	draw_square(game->player.x, game->player.y, 5, 0x00FF00);
+	draw_square(game->player.x, game->player.y, 10, 0x00FF00);
+	draw_map(&game->map);
 	mlx_put_image_to_window(game->mlx, game->window, game->img, 0, 0);
 	return (0);
 }

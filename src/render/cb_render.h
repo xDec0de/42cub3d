@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:10:05 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/27 01:56:08 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:52:38 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,13 @@
 # define TILE_SIZE 64
 # define PI 3.14159265359
 
-void	render(void);
 t_game	*fake_cb_get(void);
 void	fake_cb_exit(char *msg, int ec);
+void	render(void);
 int		draw_loop(t_game *game);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	draw_square(int x, int y, int size, int color);
+void	draw_map(t_map *map);
+void	clear_image(t_game *game);
 
 #endif
