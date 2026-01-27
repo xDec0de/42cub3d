@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 16:07:56 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/27 01:43:02 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:07:15 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	key_press(int key, t_player *player)
 {
+	if (key == KEY_ESC)
+		close_window();
 	if (key == KEY_W)
 		player->key_up = true;
 	if (key == KEY_S)

@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:07:46 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/27 01:55:54 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:07:36 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void	render(void)
 	game->data.addr = mlx_get_data_addr(game->img, &game->data.bits_per_pixel,
 			&game->data.line_length, &game->data.endian);
 	mlx_hook(game->window, 17, 0L, close_window, game);
-	mlx_key_hook(game->window, handle_key, game);
 	mlx_hook(game->window, 2, 1L << 0, key_press, &game->player);
 	mlx_hook(game->window, 3, 1L << 1, key_release, &game->player);
 	mlx_loop_hook(game->mlx, draw_loop, game);
