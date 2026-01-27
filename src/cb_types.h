@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:18:46 by daniema3          #+#    #+#             */
-/*   Updated: 2026/01/26 11:48:19 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 13:33:32 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,15 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	int		x;
-	int		y;
-	char	dir;
+	float	x;
+	float	y;
+	float	angle;
 	bool	key_up;
 	bool	key_down;
 	bool	key_right;
 	bool	key_left;
+	bool	right_rotate;
+	bool	left_rotate;
 }	t_player;
 
 typedef struct t_data

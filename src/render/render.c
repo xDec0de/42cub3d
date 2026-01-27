@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:07:46 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/27 11:50:47 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 13:10:31 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	draw_loop(t_game *game)
 {
-	move_player(&game->player, 5);
+	move_player(&game->player, 5, 0.1);
 	clear_image(game);
 	draw_square(game->player.x, game->player.y, 10, 0x00FF00);
 	draw_map(&game->map);

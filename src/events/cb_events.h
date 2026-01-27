@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:21:38 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/26 12:07:57 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/27 13:17:57 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@
 # define KEY_A XK_a
 # define KEY_S XK_s
 # define KEY_D XK_d
+# define KEY_RIGHT XK_l
+# define KEY_LEFT XK_j
 
 int		close_window(void);
 int		handle_key(int key, t_game *game);
 int		key_press(int key, t_player *player);
 int		key_release(int key, t_player *player);
-void	move_player(t_player *player, int speed);
+void	move_player(t_player *player, int speed, float angle_speed);
 
 #endif

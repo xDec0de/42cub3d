@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   cb_getter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 09:15:50 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/13 12:03:16 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/01/27 13:14:16 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cb_mem.h"
+#include "cb_render.h"
 
 t_player	init_player(void)
 {
 	t_player	player;
 
-	player.dir = '\0';
+	player.angle = PI / 2;
 	player.x = 0;
 	player.y = 0;
 	return (player);
