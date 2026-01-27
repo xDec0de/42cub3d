@@ -49,7 +49,9 @@ functions we used from it
 
 | Name | Basic description |
 | :---: | :---: |
-| ... | ... |
+| cos | Returns the cosine of an angle (in radians) |
+| sin | Returns the sine of an angle (in radians) |
+
 
 ## Exit codes
 
