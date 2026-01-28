@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:10:05 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/27 17:59:42 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/28 20:26:08 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define WINDOW_HEIGHT 720
 # define TILE_SIZE 64
 # define PI 3.14159265359
+# define DEBUG 0
 
 t_game	*fake_cb_get(void);
 void	fake_cb_exit(char *msg, int ec);
@@ -35,5 +36,6 @@ void	draw_square(int x, int y, int size, int color);
 void	draw_map(t_map *map);
 void	clear_image(t_game *game);
 void	raycaster(t_game *game);
+void	draw_wall_slice( t_game *game, float dist, int screen_x);
 
 #endif

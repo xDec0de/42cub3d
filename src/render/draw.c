@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:49:44 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/27 11:52:41 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/28 19:42:07 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,21 @@ void	clear_image(t_game *game)
 			x++;
 		}
 		y++;
+	}
+}
+
+void	draw_wall_slice( t_game *game, float dist, int screen_x)
+{
+	float	height;
+	int		start_y;
+	int		end_y;
+
+	height = (TILE_SIZE / dist) * (WINDOW_WIDTH / 2);
+	start_y = (WINDOW_HEIGHT - height) / 2;
+	end_y = start_y + height;
+	while (start_y < end_y)
+	{
+		my_mlx_pixel_put(&game->data, screen_x, start_y, 255);
+		start_y++;
 	}
 }
