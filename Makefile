@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+         #
+#    By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/01/27 18:00:38 by rexposit         ###   ########.fr        #
+#    Updated: 2026/01/28 18:12:05 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,7 +116,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): submodules $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLX_FLAGS) -lreadline
 	@printf "\r✅ $(OKNAME) successfully compiled!$(RES)\n"
 
@@ -140,6 +140,8 @@ fclean: clean
 	@rm -rf $(TEST_NAME)
 	@printf "\r✅ $(GREEN)Removed $(OKNAME) executables$(GRAY).$(RES)\n"
 
+cleanall: fclean cleansubmodules
+
 # > ~ Clean & compile
 
 re: fclean $(NAME)
@@ -161,3 +163,11 @@ norm:
 		printf "\r✅ $(GREEN)No norm errors found on $(OKNAME)!$(RES)\n"; \
 		rm -rf $(NORM_ERRFILE); \
 	fi
+
+# > ~ Submodules
+
+submodules:
+	@git submodule update --init --recursive
+
+cleansubmodules:
+	@git submodule deinit --force --all
