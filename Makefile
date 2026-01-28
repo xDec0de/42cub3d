@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+         #
+#    By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/01/28 21:30:22 by rexposit         ###   ########.fr        #
+#    Updated: 2026/01/28 21:57:28 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 LOG_DIR = ./logs
 TEST_DIR = ./test
 
-CC ?= cc
+CC = cc
 
 INCLUDE_DIRS =	-I$(SRC_DIR) \
 				-I$(SRC_DIR)/parser \
@@ -37,6 +37,7 @@ CFLAGS =	-Wall -Werror -Wextra \
 			-fdiagnostics-color=always \
 			-Wl,--wrap=malloc \
 			-Wl,--wrap=free \
+			-std=gnu11 \
 			$(INCLUDE_DIRS)
 
 # > ~ Main project files
@@ -116,7 +117,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 all: $(NAME)
 
-$(NAME): submodules $(OBJS)
+$(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLX_FLAGS) -lreadline
 	@printf "\r✅ $(OKNAME) successfully compiled!$(RES)\n"
 
@@ -168,6 +169,7 @@ norm:
 
 submodules:
 	@git submodule update --init --recursive
+	@make -C $(MLX_DIR) CFLAGS+="-std=gnu11 -O3 -I$(CURDIR)/minilibx-linux"
 
 cleansubmodules:
 	@git submodule deinit --force --all

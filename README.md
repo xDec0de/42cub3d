@@ -10,6 +10,22 @@ coding style. I mention this mainly to justify the bad practices we are *forced*
 use at `.h` files for colored messages (Not having macros for colors). If you are curious
 about why, read [this issue](https://github.com/42school/norminette/issues/534).
 
+## Dependencies
+
+For this project, the use of the [MiniLibX library](https://github.com/42Paris/minilibx-linux)
+is mandatory. Which means that you need to install it along with its dependencies. We've made
+that process easier for you, so you only need to run two commands:
+
+- `make submodules` - Clones all submodules and compiles the MiniLibX library for you.
+- `make` - Compiles Cub3d itself.
+
+You need at least GCC 11 to compile this project. The MiniLibX Library can't be
+installed with GCC 15, which is why `make submodules` forces it to use GCC 11
+so you don't have to figure that out.
+
+Please refer to the MiniLibX library's [github page](https://github.com/42Paris/minilibx-linux)
+to learn about its dependencies if you encounter errors with `make submodules`.
+
 ## Allowed functions
 
 As always, we are limited to a few functions to complete this task.
