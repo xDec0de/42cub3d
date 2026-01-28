@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:49:44 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/28 19:42:07 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/28 22:04:02 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	clear_image(t_game *game)
 	}
 }
 
-void	draw_wall_slice( t_game *game, float dist, int screen_x)
+void	draw_wall_slice(t_game *game, float dist, int screen_x)
 {
 	float	height;
 	int		start_y;

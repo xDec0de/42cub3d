@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 10:19:14 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/28 20:26:34 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/28 23:21:39 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,20 @@ static float	distance(float x, float y)
 	return (sqrtf(x * x + y * y));
 }
 
+static float	fixed_dist(float x1, float y1, float x2, float y2)
+{
+	float	delta_x;
+	float	delta_y;
+	float	angle;
+	t_game	*game;
+
+	game = fake_cb_get();
+	delta_x = x2 - x1;
+	delta_y = y2 - y1;
+	angle = atan2(delta_y, delta_x) - game->player.angle;
+	return (distance(delta_x, delta_y) * cos(angle));
+}
+
 static void	cast_ray(t_game *game, float ray_angle, int i)
 {
 	float	cos_angle;
@@ -51,8 +65,8 @@ static void	cast_ray(t_game *game, float ray_angle, int i)
 		ray_y += sin_angle;
 	}
 	if (!DEBUG)
-		draw_wall_slice(game, distance(ray_x - game->player.x,
-				ray_y - game->player.y), i);
+		draw_wall_slice(game, fixed_dist(game->player.x,
+				game->player.y, ray_x, ray_y), i);
 }
 
 void	raycaster(t_game *game)
