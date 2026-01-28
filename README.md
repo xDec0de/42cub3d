@@ -68,6 +68,15 @@ functions we used from it
 | cos | Returns the cosine of an angle (in radians) |
 | sin | Returns the sine of an angle (in radians) |
 
+## Debug mode
+
+You can toggle between the 2D debug view and the 3D raycasting view by changing the `DEBUG`
+macro in `cb_render.h`:
+
+- `#define DEBUG 1` → 2D debug mode (draws the map/player and the casted rays)
+- `#define DEBUG 0` → 3D mode (renders the scene from the player point of view)
+
+> Note: This is a development helper macro and may be removed/disabled in the final version.
 
 ## Exit codes
 
