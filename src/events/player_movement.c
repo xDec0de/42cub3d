@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   player_movement.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:22:24 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/29 21:48:14 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/01/29 22:07:39 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,23 @@ static	void	update_player_angle(t_player *player, float angle_speed)
 		player->angle = 2 * PI;
 }
 
-void	move_player_safely(t_player *player, float dx, float dy, char **grid)
+static void
+	move_player_safely(t_player *player, float dx, float dy, char **grid)
 {
 	int	rx;
 	int	ry;
 
-	rx = (int) ((player->x + dx) / TILE_SIZE);
-	ry = (int) (player->y / TILE_SIZE);
-
+	rx = (int)((player->x + dx) / TILE_SIZE);
+	ry = (int)(player->y / TILE_SIZE);
 	if (grid[ry][rx] != '1')
 		player->x += dx;
-
-	rx = (int) (player->x / TILE_SIZE);
-	ry = (int) ((player->y + dy) / TILE_SIZE);
+	rx = (int)(player->x / TILE_SIZE);
+	ry = (int)((player->y + dy) / TILE_SIZE);
 	if (grid[ry][rx] != '1')
 		player->y += dy;
 }
 
-float	get_new_x(t_player *player, float cos_a, float sin_a, int speed)
+static float	get_new_x(t_player *player, float cos_a, float sin_a, int speed)
 {
 	float	new_x;
 
@@ -57,7 +56,7 @@ float	get_new_x(t_player *player, float cos_a, float sin_a, int speed)
 	return (new_x);
 }
 
-float	get_new_y(t_player *player, float cos_a, float sin_a, int speed)
+static float	get_new_y(t_player *player, float cos_a, float sin_a, int speed)
 {
 	float	new_y;
 
@@ -73,7 +72,7 @@ float	get_new_y(t_player *player, float cos_a, float sin_a, int speed)
 	return (new_y);
 }
 
-void move_player(t_player *player, int speed, float angle_speed, char **grid)
+void	move_player(t_player *player, int speed, float angle_speed, char **grid)
 {
 	float	cos_angle;
 	float	sin_angle;
