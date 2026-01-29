@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+         #
+#    By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/01/29 17:36:14 by rexposit         ###   ########.fr        #
+#    Updated: 2026/01/29 21:54:34 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,8 +57,9 @@ SRCS +=	render/render.c \
 
 # > ~ Src - Events
 
-SRCS +=	events/events.c \
-		events/key_handlers.c
+SRCS +=	events/close_window.c \
+		events/key_handlers.c \
+		events/player_movement.c
 
 # > ~ Utils - Memory
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_events.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:21:38 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/27 17:55:15 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/29 20:39:21 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		close_window(void);
 int		handle_key(int key, t_game *game);
 int		key_press(int key, t_player *player);
 int		key_release(int key, t_player *player);
-void	move_player(t_player *player, int speed, float angle_speed);
+void	move_player(t_player *player, int speed, float angle_speed, char **grid);
 void	get_angle_vectors(t_player *player, float *cos_a, float *sin_a);
 
 #endif

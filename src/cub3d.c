@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 18:09:27 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/13 17:31:53 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/01/28 22:12:58 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "cb_msg.h"
 #include "cb_strutils.h"
 #include "cb_mem.h"
+#include "cb_render.h"
 
 char	**read_map_file(int fd)
 {
@@ -48,7 +49,7 @@ char	**read_map_file(int fd)
 
 int	main(int argc, char **argv)
 {
-	t_game	*game;
+	/*t_game	*game;
 	char	**map;
 
 	if (argc != 2)
@@ -59,5 +60,9 @@ int	main(int argc, char **argv)
 	map = read_map_file(open(argv[1], O_RDONLY));
 	(void) game;
 	cb_arrfree((void **) map);
-	cb_exit(NULL, EXIT_SUCCESS);
+	cb_exit(NULL, EXIT_SUCCESS);*/
+
+	(void) argc;
+	(void) argv;
+	render();
 }

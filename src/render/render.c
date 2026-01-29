@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:07:46 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/28 20:25:54 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/29 20:40:02 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	draw_loop(t_game *game)
 {
-	move_player(&game->player, 3, 0.03);
+	move_player(&game->player, 3, 0.03, game->map.grid);
 	clear_image(game);
 	if (DEBUG)
 	{
