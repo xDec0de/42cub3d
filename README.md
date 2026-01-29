@@ -67,6 +67,7 @@ functions we used from it
 | :---: | :---: |
 | cos | Returns the cosine of an angle (in radians) |
 | sin | Returns the sine of an angle (in radians) |
+| atan2 | Returns the angle (in radians) of the vector |
 
 ## Debug mode
 
