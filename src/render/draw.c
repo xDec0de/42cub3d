@@ -6,21 +6,11 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:49:44 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/28 22:04:02 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/29 17:30:10 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cb_render.h"
-
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	if (x >= WINDOW_WIDTH || y >= WINDOW_HEIGHT || x < 0 || y < 0)
-		return ;
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
 
 void	draw_square(int x, int y, int size, int color)
 {

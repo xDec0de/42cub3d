@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:10:05 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/28 20:26:08 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/29 17:35:56 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void	draw_map(t_map *map);
 void	clear_image(t_game *game);
 void	raycaster(t_game *game);
 void	draw_wall_slice( t_game *game, float dist, int screen_x);
+void	my_mlx_pixel_put_color(t_data *data, int x, int y, t_color c);
 
 #endif

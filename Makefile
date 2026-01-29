@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+         #
+#    By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/01/28 21:57:28 by daniema3         ###   ########.fr        #
+#    Updated: 2026/01/29 17:36:14 by rexposit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ SRCS +=	render/render.c \
 		render/fake_getter.c \
 		render/fake_exit.c \
 		render/draw.c \
-		render/raycaster.c
+		render/raycaster.c \
+		render/draw_pixel.c
 
 # > ~ Src - Events
 
