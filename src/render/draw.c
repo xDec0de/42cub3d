@@ -6,11 +6,28 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:49:44 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/29 17:30:10 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/29 18:31:59 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cb_render.h"
+
+static void	draw_ceiling_and_floor(t_game *game,
+	float screen_x, float wall_y_start, float wall_y_end)
+{
+	while (wall_y_start > 0)
+	{
+		my_mlx_pixel_put_color(&game->data,
+				screen_x, wall_y_start, game->map.ceil_col);
+		wall_y_start--;
+	}
+	while (wall_y_end < WINDOW_HEIGHT)
+	{
+		my_mlx_pixel_put_color(&game->data,
+				screen_x, wall_y_end, game->map.floor_col);
+		wall_y_end++;
+	}
+}
 
 void	draw_square(int x, int y, int size, int color)
 {
@@ -75,6 +92,7 @@ void	draw_wall_slice(t_game *game, float dist, int screen_x)
 	height = (TILE_SIZE / dist) * (WINDOW_WIDTH / 2);
 	start_y = (WINDOW_HEIGHT - height) / 2;
 	end_y = start_y + height;
+	draw_ceiling_and_floor(game, screen_x, start_y, end_y);
 	while (start_y < end_y)
 	{
 		my_mlx_pixel_put(&game->data, screen_x, start_y, 255);

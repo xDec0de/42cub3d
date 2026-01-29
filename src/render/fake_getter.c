@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:08:04 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/27 22:53:09 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/01/29 18:09:10 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ t_map	fake_init_map(void)
 	map.ceil_col.g = 0;
 	map.ceil_col.b = 0;
 	map.floor_col.r = 0;
-	map.floor_col.g = 0;
-	map.floor_col.b = 255;
+	map.floor_col.g = 255;
+	map.floor_col.b = 0;
 	return (map);
 }
 
