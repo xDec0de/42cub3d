@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42.fr>          +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 17:02:00 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/13 17:23:40 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/02/08 22:36:59 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	*free_mem(char **split, int w_nbr)
 	i = 0;
 	while (i < w_nbr)
 		free(split[i++]);
-	free(split[i]);
+	free(split);
 	return (NULL);
 }
 

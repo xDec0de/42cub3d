@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_types.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:18:46 by daniema3          #+#    #+#             */
-/*   Updated: 2026/01/27 13:33:32 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/02/09 01:54:28 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdbool.h>
 # include <stddef.h>
+
+# define DEBUG false
 
 typedef struct s_color
 {
@@ -45,13 +47,21 @@ typedef struct s_player
 	bool	left_rotate;
 }	t_player;
 
-typedef struct t_data
+typedef struct s_data
 {
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
 }	t_data;
+
+typedef struct s_assets
+{
+	void	*north;
+	void	*south;
+	void	*west;
+	void	*east;
+}	t_assets;
 
 typedef struct s_game
 {
@@ -61,6 +71,7 @@ typedef struct s_game
 	t_map		map;
 	t_player	player;
 	t_data		data;
+	t_assets	assets;
 }	t_game;
 
 t_game	*cb_get(void);

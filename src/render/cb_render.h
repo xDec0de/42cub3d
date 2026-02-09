@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_render.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:10:05 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/29 17:35:56 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/02/09 01:32:09 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@
 
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
+# define WINDOW_TITLE "cub3d"
+
+# define PLAYER_SPEED 3
+# define ANGLE_SPEED 0.03
+
 # define TILE_SIZE 64
 # define PI 3.14159265359
-# define DEBUG 0
 
-t_game	*fake_cb_get(void);
-void	fake_cb_exit(char *msg, int ec);
-void	render(void);
+void	render(t_game *game);
 int		draw_loop(t_game *game);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	draw_square(int x, int y, int size, int color);

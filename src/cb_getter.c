@@ -3,27 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   cb_getter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 09:15:50 by daniema3          #+#    #+#             */
-/*   Updated: 2026/01/27 13:14:16 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/02/09 01:31:07 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cb_mem.h"
 #include "cb_render.h"
 
-t_player	init_player(void)
+static t_player	init_player(void)
 {
 	t_player	player;
 
 	player.angle = PI / 2;
 	player.x = 0;
 	player.y = 0;
+	player.key_up = false;
+	player.key_down = false;
+	player.key_right = false;
+	player.key_left = false;
+	player.right_rotate = false;
+	player.left_rotate = false;
 	return (player);
 }
 
-t_map	init_map(void)
+static t_map	init_map(void)
 {
 	t_map	map;
 
@@ -37,13 +43,25 @@ t_map	init_map(void)
 	return (map);
 }
 
-t_game	*cb_init(void)
+static t_assets	init_assets(void)
+{
+	t_assets	assets;
+
+	assets.north = NULL;
+	assets.south = NULL;
+	assets.west = NULL;
+	assets.east = NULL;
+	return (assets);
+}
+
+static t_game	*cb_init(void)
 {
 	t_game	*game;
 
 	game = cb_malloc(sizeof(t_game));
 	game->map = init_map();
 	game->player = init_player();
+	game->assets = init_assets();
 	return (game);
 }
 

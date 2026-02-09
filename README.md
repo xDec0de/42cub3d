@@ -72,10 +72,10 @@ functions we used from it
 ## Debug mode
 
 You can toggle between the 2D debug view and the 3D raycasting view by changing the `DEBUG`
-macro in `cb_render.h`:
+macro in `cb_types.h`:
 
-- `#define DEBUG 1` → 2D debug mode (draws the map/player and the casted rays)
-- `#define DEBUG 0` → 3D mode (renders the scene from the player point of view)
+- `#define DEBUG true` → 2D debug mode (draws the map/player and the casted rays)
+- `#define DEBUG false` → 3D mode (renders the scene from the player point of view)
 
 > Note: This is a development helper macro and may be removed/disabled in the final version.
 
@@ -91,6 +91,7 @@ internal program errors are all negative integers.
 | 1 | ERRC_ARGC | Invalid program argument count |
 | 2 | ERRC_MAP_FILE_EXTENSION | Provided map file name doesn't end with '.cub' |
 | 3 | ERRC_MAP_OPEN_MAP | Failed to open map file (Most likely it doesn't exist) |
+| 4 | ERRC_INVALID_COLOR | Invalid color format |
 | -1 | ERRC_MALLOC_FAIL | Malloc failed |
 | -2 | ERRC_READ_FAIL | Read failed |
 | -3 | ERRC_MLX_INIT_FAIL | MLX initialization failure |

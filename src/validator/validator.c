@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   validator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/29 21:48:27 by daniema3          #+#    #+#             */
-/*   Updated: 2026/02/09 01:32:58 by daniema3         ###   ########.fr       */
+/*   Created: 2026/02/08 19:03:57 by daniema3          #+#    #+#             */
+/*   Updated: 2026/02/09 01:27:06 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cb_events.h"
+#include "cb_validator.h"
 
-int	close_window(void)
+void	validate_game(t_game *game)
 {
-	cb_exit(NULL, 0);
-	return (0);
+	(void) game;
 }

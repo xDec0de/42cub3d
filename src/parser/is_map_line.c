@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   is_map_line.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/29 21:48:27 by daniema3          #+#    #+#             */
-/*   Updated: 2026/02/09 01:32:58 by daniema3         ###   ########.fr       */
+/*   Created: 2026/02/08 19:47:35 by daniema3          #+#    #+#             */
+/*   Updated: 2026/02/09 02:07:46 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cb_events.h"
+#include "cb_types.h"
 
-int	close_window(void)
+bool	is_map_line(const char *line)
 {
-	cb_exit(NULL, 0);
-	return (0);
+	char	ch;
+
+	ch = line[0];
+	return (ch == ' ' || ch == '1' || ch == '0');
 }

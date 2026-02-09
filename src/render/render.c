@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:07:46 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/29 20:40:02 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/02/08 18:10:02 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	draw_loop(t_game *game)
 {
-	move_player(&game->player, 3, 0.03, game->map.grid);
+	move_player(&game->player, PLAYER_SPEED, ANGLE_SPEED, game->map.grid);
 	clear_image(game);
 	if (DEBUG)
 	{
@@ -26,21 +26,18 @@ int	draw_loop(t_game *game)
 	return (0);
 }
 
-void	render(void)
+void	render(t_game *game)
 {
-	t_game	*game;
-
-	game = fake_cb_get();
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		fake_cb_exit(NULL, ERRC_MLX_INIT_FAIL);
+		cb_exit(NULL, ERRC_MLX_INIT_FAIL);
 	game->window = mlx_new_window(game->mlx, WINDOW_WIDTH,
-			WINDOW_HEIGHT, "cub3d");
+			WINDOW_HEIGHT, WINDOW_TITLE);
 	if (!game->window)
-		fake_cb_exit(NULL, ERRC_WINDOW_INIT_FAIL);
+		cb_exit(NULL, ERRC_WINDOW_INIT_FAIL);
 	game->img = mlx_new_image(game->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	if (!game->img)
-		fake_cb_exit(NULL, ERRC_IMG_CREATION_FAIL);
+		cb_exit(NULL, ERRC_IMG_CREATION_FAIL);
 	game->data.addr = mlx_get_data_addr(game->img, &game->data.bits_per_pixel,
 			&game->data.line_length, &game->data.endian);
 	mlx_hook(game->window, 17, 0L, close_window, game);

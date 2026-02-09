@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:49:44 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/29 19:39:40 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/02/09 01:31:52 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	draw_square(int x, int y, int size, int color)
 	t_game	*game;
 	int		i;
 
-	game = fake_cb_get();
+	game = cb_get();
 	i = 0;
 	while (i < size)
 	{

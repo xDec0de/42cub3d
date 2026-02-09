@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cb_msg.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:32:48 by daniema3          #+#    #+#             */
-/*   Updated: 2026/01/22 10:38:39 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/02/09 00:05:07 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CB_MSG_H
 # define CB_MSG_H
+
+# include <stdio.h>
 
 void	cb_exitf(int print_res, int ec);
 void	cb_exit(char *msg, int ec);
@@ -34,6 +36,10 @@ void	cb_exit(char *msg, int ec);
 # define ERR_OPEN_MAP "\e[0;31mError\e[1;30m: \e[1;31mCould\
  not open map file \e[1;30m- \e[1;31m%s\033[0m\n"
 # define ERRC_OPEN_MAP 3
+
+# define ERR_INVALID_COLOR "\e[0;31mError\e[1;30m: \e[1;31mInvalid\
+ color format \e[1;30m- \e[1;31m%s\033[0m\n"
+# define ERRC_INVALID_COLOR 4
 
 /*
  - Internal errors

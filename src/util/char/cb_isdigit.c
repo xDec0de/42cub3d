@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   cb_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/29 21:48:27 by daniema3          #+#    #+#             */
-/*   Updated: 2026/02/09 01:32:58 by daniema3         ###   ########.fr       */
+/*   Created: 2026/02/08 20:05:08 by daniema3          #+#    #+#             */
+/*   Updated: 2026/02/08 20:05:23 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cb_events.h"
+#include "cb_types.h"
 
-int	close_window(void)
+bool	cb_isdigit(char ch)
 {
-	cb_exit(NULL, 0);
-	return (0);
+	return (ch >= '0' && ch <= '9');
 }

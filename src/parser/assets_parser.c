@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close_window.c                                     :+:      :+:    :+:   */
+/*   assets_parser.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/29 21:48:27 by daniema3          #+#    #+#             */
-/*   Updated: 2026/02/09 01:32:58 by daniema3         ###   ########.fr       */
+/*   Created: 2026/02/08 18:45:59 by daniema3          #+#    #+#             */
+/*   Updated: 2026/02/08 18:58:14 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cb_events.h"
+#include "cb_types.h"
 
-int	close_window(void)
+void	parse_assets(t_game *game, char **map_data)
 {
-	cb_exit(NULL, 0);
-	return (0);
+	(void) game;
+	(void) map_data;
 }

@@ -6,13 +6,13 @@
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:36:18 by daniema3          #+#    #+#             */
-/*   Updated: 2025/09/12 04:37:23 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/02/08 19:23:04 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cb_types.h"
 
-size_t	cb_strlen(char *str)
+size_t	cb_strlen(const char *str)
 {
 	size_t	len;
 

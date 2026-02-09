@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycaster.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 10:19:14 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/28 23:21:39 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/02/09 01:32:49 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static float	fixed_dist(float x1, float y1, float x2, float y2)
 	float	angle;
 	t_game	*game;
 
-	game = fake_cb_get();
+	game = cb_get();
 	delta_x = x2 - x1;
 	delta_y = y2 - y1;
 	angle = atan2(delta_y, delta_x) - game->player.angle;
