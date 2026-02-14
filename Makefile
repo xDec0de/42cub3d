@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/02/09 01:51:21 by daniema3         ###   ########.fr        #
+#    Updated: 2026/02/14 22:17:00 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ MLX_DIR = ./minilibx-linux
 MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 LOG_DIR = ./logs
-TEST_DIR = ./test
 
 CC = cc
 
@@ -32,7 +31,8 @@ INCLUDE_DIRS =	-I$(SRC_DIR) \
 				-I$(SRC_DIR)/util/char \
 				-I$(SRC_DIR)/util/mem \
 				-I$(SRC_DIR)/util/str \
-				-I$(MLX_DIR)
+				-I$(MLX_DIR) \
+				-I$(CST_DIR)/src
 
 CFLAGS =	-Wall -Werror -Wextra \
 			-g3 \
@@ -196,3 +196,34 @@ submodules:
 
 cleansubmodules:
 	@git submodule deinit --force --all
+
+# > ~ Test
+
+TEST_DIR = ./test
+CST_DIR = ./cst
+CST_LIB = $(CST_DIR)/libcst.a
+
+TEST_NAME = CST
+
+TEST_SRCS = $(shell find $(TEST_DIR) -name '*.c' 2>/dev/null)
+TEST_OBJS = $(TEST_SRCS:$(TEST_DIR)/%.c=$(OBJ_DIR)/test/%.o)
+OBJS_NO_MAIN = $(filter-out $(OBJ_DIR)/cub3d.o, $(OBJS))
+
+$(OBJ_DIR)/test/%.o: $(TEST_DIR)/%.c
+	@mkdir -p $(dir $@)
+	@printf "\r⏳ $(YLW)Compiling test $(BYLW)$(notdir $<)$(GRAY)...$(RES)"
+	@{\
+		ERR=$$( ($(CC) $(CFLAGS) -I$(CST_DIR)/include -c $< -o $@) 2>&1 );\
+		if [ $$? -ne 0 ]; then\
+			printf "\r\n❌ $(RED)Failed to compile test $(BRED)$(notdir $@)$(GRAY):$(RES)\n";\
+			echo "$$ERR";\
+			exit 1;\
+		else\
+			printf "\r✅ $(GREEN)Compiled test $(BGREEN)$(notdir $<)$(RES)\n";\
+		fi;\
+	}
+
+test: $(NAME) $(TEST_OBJS)
+	@make -C $(CST_DIR)
+	@$(CC) $(CFLAGS) $(OBJS_NO_MAIN) $(TEST_OBJS) $(CST_LIB) -o $(TEST_NAME) $(MLX_FLAGS)
+	@./$(TEST_NAME)

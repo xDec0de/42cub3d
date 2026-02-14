@@ -54,8 +54,9 @@ dkms.conf
 # debug information files
 *.dwo
 
-# Project executable
+# Project / tests executables
 cub3d
+CST
 
 # Logs folder
 logs/
