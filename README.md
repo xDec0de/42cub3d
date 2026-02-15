@@ -16,7 +16,7 @@ For this project, the use of the [MiniLibX library](https://github.com/42Paris/m
 is mandatory. Which means that you need to install it along with its dependencies. We've made
 that process easier for you, so you only need to run two commands:
 
-- `make submodules` - Clones all submodules and compiles the MiniLibX library for you.
+- `make submodules` - Initializes all submodules and compiles the MiniLibX library for you.
 - `make` - Compiles Cub3d itself.
 
 You need at least GCC 11 to compile this project. The MiniLibX Library can't be
@@ -25,6 +25,19 @@ so you don't have to figure that out.
 
 Please refer to the MiniLibX library's [github page](https://github.com/42Paris/minilibx-linux)
 to learn about its dependencies if you encounter errors with `make submodules`.
+
+## Updating
+
+Updating all submodules and ensuring that you are using the correct version for each one of
+them can be tedious. That's why `make update` pulls the latest version of cub3d, updates
+all submodules and rebuilds the project for you.
+
+## Testing
+
+A few tests are included to make sure that the program works as expected. Tests have been
+written with the [CST Library](https://github.com/xDec0de/CSkyTester) and can be executed
+with `make test`. Keep in mind that the CST submodule is required in order to run tests.
+If you haven't initialized it already, you can do so with `make submodules`.
 
 ## Allowed functions
 
