@@ -57,9 +57,8 @@ jobs:
       image: ghcr.io/xdec0de/42ghcr:main
 
     steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-      
+      - name: "Compile submodules"
+        run: make submodules
+
       - name: Pass tests
         run: make test
