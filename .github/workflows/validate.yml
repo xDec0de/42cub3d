@@ -17,9 +17,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fix git safe directory
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-
       - name: Pass norminette
         run: make norm
 
@@ -38,11 +35,6 @@ jobs:
       - name: Fix git safe directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
-      - name: Install X11 deps (for MiniLibX)
-        run: |
-          apt-get update
-          apt-get install -y xorg-dev libx11-dev libxext-dev libbsd-dev zlib1g-dev
-
       - name: Build MiniLibX
         env:
           MLX_DIR: minilibx-linux
@@ -51,9 +43,23 @@ jobs:
             make -C "$MLX_DIR"
           else
             echo "MiniLibX directory not found: $MLX_DIR"
-            echo "Edit MLX_DIR in the workflow to match your repo."
             exit 1
           fi
 
       - name: Compile
         run: make
+
+  test:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[ci-skip]')"
+
+    container:
+      image: ghcr.io/xdec0de/42ghcr:main
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      
+      - name: Pass tests
+        run: make test
