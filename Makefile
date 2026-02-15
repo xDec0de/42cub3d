@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/02/14 22:17:00 by daniema3         ###   ########.fr        #
+#    Updated: 2026/02/15 17:39:47 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,6 @@ INCLUDE_DIRS =	-I$(SRC_DIR) \
 CFLAGS =	-Wall -Werror -Wextra \
 			-g3 \
 			-fdiagnostics-color=always \
-			-Wl,--wrap=malloc \
-			-Wl,--wrap=free \
 			-std=gnu11 \
 			$(INCLUDE_DIRS)
 
@@ -92,12 +90,6 @@ SRCS += util/str/cb_split.c \
 		util/str/cb_strjoin.c \
 		util/str/cb_strlen.c \
 		util/str/cb_strstartswith.c
-
-# > ~ Auto free & double free prevention (I'M NOT SURE IF WE CAN DO THIS)
-
-SRCS +=	util/mem/tmp/free_wrapper.c \
-		util/mem/tmp/get_alloc_list.c \
-		util/mem/tmp/malloc_wrapper.c
 
 # > ~ .c to .o conversion
 
@@ -190,12 +182,24 @@ norm:
 
 # > ~ Submodules
 
+buildsubmodules:
+	@make -C $(MLX_DIR) CFLAGS+="-std=gnu11 -O3 -I$(CURDIR)/minilibx-linux"
+	@make -C $(CST_DIR)
+
 submodules:
 	@git submodule update --init --recursive
-	@make -C $(MLX_DIR) CFLAGS+="-std=gnu11 -O3 -I$(CURDIR)/minilibx-linux"
+	@make buildsubmodules
 
 cleansubmodules:
 	@git submodule deinit --force --all
+
+# > ~ Update
+
+update:
+	@git pull
+	@git submodule update --remote --recursive
+	@make buildsubmodules
+	@make re
 
 # > ~ Test
 
@@ -227,3 +231,5 @@ test: $(NAME) $(TEST_OBJS)
 	@make -C $(CST_DIR)
 	@$(CC) $(CFLAGS) $(OBJS_NO_MAIN) $(TEST_OBJS) $(CST_LIB) -o $(TEST_NAME) $(MLX_FLAGS)
 	@./$(TEST_NAME)
+
+.PHONY: all clean fclean cleanall re norm buildsubmodules submodules cleansubmodules update test
