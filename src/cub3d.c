@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 18:09:27 by daniema3          #+#    #+#             */
-/*   Updated: 2026/02/09 00:04:55 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/01 17:20:42 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "cb_mem.h"
 #include "cb_render.h"
 #include "cb_parser.h"
-#include "cb_validator.h"
 
 int	main(int argc, char **argv)
 {
@@ -30,7 +29,6 @@ int	main(int argc, char **argv)
 	map_data = read_map_file(open(argv[1], O_RDONLY));
 	parse_map_file(game, map_data);
 	cb_arrfree((void **) map_data);
-	validate_game(game);
 	render(game);
 	cb_exit(NULL, EXIT_SUCCESS);
 }

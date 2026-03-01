@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 09:15:50 by daniema3          #+#    #+#             */
-/*   Updated: 2026/02/09 01:31:07 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/01 17:21:56 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ static t_game	*cb_init(void)
 	t_game	*game;
 
 	game = cb_malloc(sizeof(t_game));
+	game->mlx = NULL;
+	game->window = NULL;
+	game->img = NULL;
 	game->map = init_map();
 	game->player = init_player();
 	game->assets = init_assets();
