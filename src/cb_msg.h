@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:32:48 by daniema3          #+#    #+#             */
-/*   Updated: 2026/02/09 00:05:07 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/01 17:13:52 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ void	cb_exit(char *msg, int ec);
 # define ERR_INVALID_COLOR "\e[0;31mError\e[1;30m: \e[1;31mInvalid\
  color format \e[1;30m- \e[1;31m%s\033[0m\n"
 # define ERRC_INVALID_COLOR 4
+
+# define ERR_INVALID_MAP "\e[0;31mError\e[1;30m: \e[1;31mInvalid\
+ map structure\033[0m\n"
+# define ERRC_INVALID_MAP 5
 
 /*
  - Internal errors

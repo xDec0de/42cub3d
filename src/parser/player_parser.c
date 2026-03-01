@@ -6,7 +6,7 @@
 /*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 01:39:50 by daniema3          #+#    #+#             */
-/*   Updated: 2026/02/09 02:05:55 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/01 16:11:23 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	update_player_pos(t_game *game, int x, int y, char ch)
 		game->player.angle = 3 * PI / 2;
 }
 
-void	find_player_pos(t_game *game)
+bool	find_player_pos(t_game *game)
 {
 	char	**grid;
 	int		x;
@@ -45,10 +45,11 @@ void	find_player_pos(t_game *game)
 			if (ch == 'N' || ch == 'S' || ch == 'E' || ch == 'W')
 			{
 				update_player_pos(game, x, y, ch);
-				break ;
+				return (true);
 			}
 			x++;
 		}
 		y++;
 	}
+	return (false);
 }

@@ -6,7 +6,7 @@
 #    By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/02/15 20:13:55 by daniema3         ###   ########.fr        #
+#    Updated: 2026/03/01 17:15:43 by daniema3         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,8 +68,9 @@ SRCS += parser/assets_parser.c \
         parser/color_parser.c \
         parser/is_map_line.c \
         parser/map_reader.c \
+        parser/player_parser.c \
         parser/parser.c \
-        parser/player_parser.c
+        parser/validate_structure.c
 
 # > ~ Validator
 
