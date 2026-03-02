@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_parser.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 01:39:50 by daniema3          #+#    #+#             */
-/*   Updated: 2026/03/01 16:11:23 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:24:21 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ static void	update_player_pos(t_game *game, int x, int y, char ch)
 	game->player.y = y * TILE_SIZE;
 	if (ch == 'E')
 		game->player.angle = 0;
-	if (ch == 'N')
+	if (ch == 'S')
 		game->player.angle = PI / 2;
 	if (ch == 'W')
 		game->player.angle = PI;
-	if (ch == 'S')
+	if (ch == 'N')
 		game->player.angle = 3 * PI / 2;
 }
 

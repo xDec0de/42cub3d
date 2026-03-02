@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_types.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:18:46 by daniema3          #+#    #+#             */
-/*   Updated: 2026/02/09 01:54:28 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/02/09 14:33:34 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ typedef struct s_color
 typedef struct s_map
 {
 	char	**grid;
-	int		width;
-	int		height;
 	t_color	ceil_col;
 	t_color	floor_col;
 }	t_map;

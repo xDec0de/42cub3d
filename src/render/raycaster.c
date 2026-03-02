@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycaster.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 10:19:14 by rexposit          #+#    #+#             */
-/*   Updated: 2026/02/09 01:32:49 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:33:26 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ static bool	ray_hits_wall(float px, float py, t_game *game)
 
 	x = px / TILE_SIZE;
 	y = py / TILE_SIZE;
-	if (x >= game->map.width || y >= game->map.height || x < 0 || y < 0)
-		return (true);
 	if (game->map.grid[y][x] == '1')
 		return (true);
 	else

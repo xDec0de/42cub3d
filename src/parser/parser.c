@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 18:55:34 by daniema3          #+#    #+#             */
-/*   Updated: 2026/03/01 16:18:28 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:23:07 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,4 @@ void	parse_map_file(t_game *game, char **map_data)
 	extract_map_grid(game, map_data);
 	validate_structure(game->map.grid, map_data);
 	find_player_pos(game);
-	game->map.height = 10;
-	game->map.width = 16;
 }
