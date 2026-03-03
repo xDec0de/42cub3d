@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:18:46 by daniema3          #+#    #+#             */
-/*   Updated: 2026/02/09 14:33:34 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:49:07 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdbool.h>
 # include <stddef.h>
+# include "cb_strutils.h"
 
 # define DEBUG false
 
@@ -30,6 +31,10 @@ typedef struct s_map
 	char	**grid;
 	t_color	ceil_col;
 	t_color	floor_col;
+	char	*no_path;
+	char	*so_path;
+	char	*we_path;
+	char	*ea_path;
 }	t_map;
 
 typedef struct s_player
