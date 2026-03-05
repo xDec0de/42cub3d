@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:18:46 by daniema3          #+#    #+#             */
-/*   Updated: 2026/03/02 17:49:07 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/03/05 19:41:37 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,35 @@ typedef struct s_assets
 	void	*west;
 	void	*east;
 }	t_assets;
+
+typedef struct s_ray
+{
+	float	angle;
+	float	hit_x;
+	float	hit_y;
+	float	dist;
+	bool	is_vertical;
+	int		face;
+	int		screen_x;
+}	t_ray;
+
+typedef struct s_ray_step
+{
+	float	cos_a;
+	float	sin_a;
+	float	x;
+	float	y;
+	float	prev_x;
+	float	prev_y;
+}	t_ray_step;
+
+typedef struct s_ray_cells
+{
+	int		prev_x;
+	int		prev_y;
+	int		hit_x;
+	int		hit_y;
+}	t_ray_cells;
 
 typedef struct s_game
 {

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+         #
+#    By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/03/01 17:20:32 by daniema3         ###   ########.fr        #
+#    Updated: 2026/03/05 19:45:23 by rexposit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,54 +23,55 @@ LOG_DIR = ./logs
 
 CC = cc
 
-INCLUDE_DIRS =  -I$(SRC_DIR) \
-                -I$(SRC_DIR)/parser \
-                -I$(SRC_DIR)/render \
-                -I$(SRC_DIR)/events \
-                -I$(SRC_DIR)/validator \
-                -I$(SRC_DIR)/util/char \
-                -I$(SRC_DIR)/util/mem \
-                -I$(SRC_DIR)/util/str \
-                -I$(MLX_DIR) \
-                -I$(CST_DIR)/src
+INCLUDE_DIRS =	-I$(SRC_DIR) \
+				-I$(SRC_DIR)/parser \
+				-I$(SRC_DIR)/render \
+				-I$(SRC_DIR)/events \
+				-I$(SRC_DIR)/validator \
+				-I$(SRC_DIR)/util/char \
+				-I$(SRC_DIR)/util/mem \
+				-I$(SRC_DIR)/util/str \
+				-I$(MLX_DIR) \
+				-I$(CST_DIR)/src
 
-CFLAGS =    -Wall -Werror -Wextra \
-            -g3 \
-            -fdiagnostics-color=always \
-            -std=gnu11 \
-            $(INCLUDE_DIRS)
+CFLAGS =	-Wall -Werror -Wextra \
+			-g3 \
+			-fdiagnostics-color=always \
+			-std=gnu11 \
+			$(INCLUDE_DIRS)
 
 # CFLAGS para tests (con CST memcheck)
 TEST_CFLAGS = $(CFLAGS) -include $(CST_DIR)/src/cst.h
 
 # > ~ Main project files
 
-SRCS =  cub3d.c \
-        cb_getter.c \
-        cb_exit.c
+SRCS =	cub3d.c \
+		cb_getter.c \
+		cb_exit.c
 
 # > ~ Render
 
-SRCS += render/render.c \
-        render/draw.c \
-        render/raycaster.c \
-        render/draw_pixel.c
+SRCS +=	render/render.c \
+		render/draw.c \
+		render/raycaster.c \
+		render/draw_pixel.c \
+		render/raycast_hit.c
 
 # > ~ Events
 
-SRCS += events/close_window.c \
-        events/key_handlers.c \
-        events/player_movement.c
+SRCS +=	events/close_window.c \
+		events/key_handlers.c \
+		events/player_movement.c
 
 # > ~ Parser
 
-SRCS += parser/assets_parser.c \
-        parser/color_parser.c \
-        parser/is_map_line.c \
-        parser/map_reader.c \
-        parser/player_parser.c \
-        parser/parser.c \
-        parser/validate_structure.c
+SRCS +=	parser/assets_parser.c \
+		parser/color_parser.c \
+		parser/is_map_line.c \
+		parser/map_reader.c \
+		parser/player_parser.c \
+		parser/parser.c \
+		parser/validate_structure.c
 
 # > ~ Utils - Char
 
@@ -78,18 +79,18 @@ SRCS += util/char/cb_isdigit.c
 
 # > ~ Utils - Memory
 
-SRCS += util/mem/cb_arrfree.c \
-        util/mem/cb_malloc.c
+SRCS +=	util/mem/cb_arrfree.c \
+		util/mem/cb_malloc.c
 
 # > ~ Utils - Strings
 
-SRCS += util/str/cb_split.c \
-        util/str/cb_strdup.c \
-        util/str/cb_strendswith.c \
-        util/str/cb_strhasch.c \
-        util/str/cb_strjoin.c \
-        util/str/cb_strlen.c \
-        util/str/cb_strstartswith.c
+SRCS +=	util/str/cb_split.c \
+		util/str/cb_strdup.c \
+		util/str/cb_strendswith.c \
+		util/str/cb_strhasch.c \
+		util/str/cb_strjoin.c \
+		util/str/cb_strlen.c \
+		util/str/cb_strstartswith.c
 
 # > ~ .c to .o conversion
 

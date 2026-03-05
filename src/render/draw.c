@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:49:44 by rexposit          #+#    #+#             */
-/*   Updated: 2026/02/09 01:31:52 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/05 19:37:54 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	clear_image(t_game *game)
 	}
 }
 
-void	draw_wall_slice(t_game *game, float dist, int screen_x)
+void	draw_wall_slice(t_game *game, float dist, int screen_x, t_ray ray)
 {
 	float	height;
 	int		wall_start;
@@ -105,9 +105,15 @@ void	draw_wall_slice(t_game *game, float dist, int screen_x)
 	if (wall_end > WINDOW_HEIGHT)
 		wall_end = WINDOW_HEIGHT;
 	draw_ceiling_and_floor(game, screen_x, wall_start, wall_end);
-	while (wall_start < wall_end)
+	while (wall_start++ < wall_end)
 	{
-		my_mlx_pixel_put(&game->data, screen_x, wall_start, 255);
-		wall_start++;
+		if (ray.face == NORTH)
+			my_mlx_pixel_put(&game->data, screen_x, wall_start, 16711680);
+		else if (ray.face == SOUTH)
+			my_mlx_pixel_put(&game->data, screen_x, wall_start, 65280);
+		else if (ray.face == WEST)
+			my_mlx_pixel_put(&game->data, screen_x, wall_start, 255);
+		else if (ray.face == EAST)
+			my_mlx_pixel_put(&game->data, screen_x, wall_start, 16776960);
 	}
 }
