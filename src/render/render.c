@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:07:46 by rexposit          #+#    #+#             */
-/*   Updated: 2026/02/08 18:10:02 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/09 11:46:51 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,32 @@ int	draw_loop(t_game *game)
 	return (0);
 }
 
+static void	load_texture(t_game *game, t_texture *tex, char *path)
+{
+	tex->img = mlx_xpm_file_to_image(game->mlx,
+			path, &tex->width, &tex->height);
+	if (tex->img == NULL)
+		cb_exit(NULL, ERRC_TEX_LOAD_FAIL);
+	tex->data.addr = mlx_get_data_addr(tex->img, &tex->data.bits_per_pixel,
+			&tex->data.line_length, &tex->data.endian);
+	if (tex->data.addr == NULL)
+		cb_exit(NULL, ERRC_TEX_DATA_ADDR_FAIL);
+}
+
+static void	load_textures(t_game *game)
+{
+	load_texture(game, &game->assets.north, game->map.no_path);
+	load_texture(game, &game->assets.south, game->map.so_path);
+	load_texture(game, &game->assets.west, game->map.we_path);
+	load_texture(game, &game->assets.east, game->map.ea_path);
+}
+
 void	render(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		cb_exit(NULL, ERRC_MLX_INIT_FAIL);
+	load_textures(game);
 	game->window = mlx_new_window(game->mlx, WINDOW_WIDTH,
 			WINDOW_HEIGHT, WINDOW_TITLE);
 	if (!game->window)

@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 11:49:44 by rexposit          #+#    #+#             */
-/*   Updated: 2026/03/05 19:37:54 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/03/09 12:09:55 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,29 +91,74 @@ void	clear_image(t_game *game)
 
 void	draw_wall_slice(t_game *game, float dist, int screen_x, t_ray ray)
 {
-	float	height;
-	int		wall_start;
-	int		wall_end;
+	float		height;
+	int			wall_start;
+	int			wall_end;
+	int			draw_start;
+	t_texture	*tex;
+	float		hit_coord;
+	float		offset;
+	int			tex_x;
+	float		step;
+	float		tex_pos;
+	int			y;
+	int			tex_y;
+	char		*src;
+	int			color;
+	int			bpp_bytes;
 
 	height = (TILE_SIZE / dist) * (WINDOW_WIDTH / 2);
 	if (height > WINDOW_HEIGHT || height < 0)
 		height = WINDOW_HEIGHT;
-	wall_start = (WINDOW_HEIGHT - height) / 2;
+
+	draw_start = (WINDOW_HEIGHT - height) / 2;
+	wall_start = draw_start;
 	wall_end = wall_start + height;
+
 	if (wall_start < 0)
 		wall_start = 0;
 	if (wall_end > WINDOW_HEIGHT)
 		wall_end = WINDOW_HEIGHT;
+
 	draw_ceiling_and_floor(game, screen_x, wall_start, wall_end);
-	while (wall_start++ < wall_end)
+	tex = &game->assets.north;
+	if (ray.face == SOUTH)
+		tex = &game->assets.south;
+	else if (ray.face == WEST)
+		tex = &game->assets.west;
+	else if (ray.face == EAST)
+		tex = &game->assets.east;
+	hit_coord = ray.hit_x;
+	if (ray.is_vertical)
+		hit_coord = ray.hit_y;
+	offset = fmodf(hit_coord, TILE_SIZE);
+	if (offset < 0)
+		offset += TILE_SIZE;
+	tex_x = (int)(offset * tex->width / TILE_SIZE);
+	if (tex_x < 0)
+		tex_x = 0;
+	if (tex_x >= tex->width)
+		tex_x = tex->width - 1;
+	step = (float)tex->height / height;
+	tex_pos = (wall_start - draw_start) * step;
+	bpp_bytes = tex->data.bits_per_pixel / 8;
+	y = wall_start;
+	while (y < wall_end)
 	{
-		if (ray.face == NORTH)
-			my_mlx_pixel_put(&game->data, screen_x, wall_start, 16711680);
-		else if (ray.face == SOUTH)
-			my_mlx_pixel_put(&game->data, screen_x, wall_start, 65280);
-		else if (ray.face == WEST)
-			my_mlx_pixel_put(&game->data, screen_x, wall_start, 255);
-		else if (ray.face == EAST)
-			my_mlx_pixel_put(&game->data, screen_x, wall_start, 16776960);
+		tex_y = (int)tex_pos;
+		if (tex_y < 0)
+			tex_y = 0;
+		if (tex_y >= tex->height)
+			tex_y = tex->height - 1;
+
+		src = tex->data.addr
+			+ (tex_y * tex->data.line_length)
+			+ (tex_x * bpp_bytes);
+		color = *(unsigned int *)src;
+
+		my_mlx_pixel_put(&game->data, screen_x, y, color);
+
+		tex_pos += step;
+		y++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:18:46 by daniema3          #+#    #+#             */
-/*   Updated: 2026/03/05 19:41:37 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/03/09 12:38:26 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,20 @@ typedef struct s_data
 	int		endian;
 }	t_data;
 
+typedef struct s_texture
+{
+	void	*img;
+	t_data	data;
+	int		width;
+	int		height;
+}	t_texture;
+
 typedef struct s_assets
 {
-	void	*north;
-	void	*south;
-	void	*west;
-	void	*east;
+	t_texture	north;
+	t_texture	south;
+	t_texture	west;
+	t_texture	east;
 }	t_assets;
 
 typedef struct s_ray

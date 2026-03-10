@@ -6,7 +6,7 @@
 #    By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/03/05 19:45:23 by rexposit         ###   ########.fr        #
+#    Updated: 2026/03/09 11:58:41 by rexposit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,8 @@ SRCS +=	render/render.c \
 		render/draw.c \
 		render/raycaster.c \
 		render/draw_pixel.c \
-		render/raycast_hit.c
+		render/raycast_hit.c \
+		render/wall_textures.c
 
 # > ~ Events
 

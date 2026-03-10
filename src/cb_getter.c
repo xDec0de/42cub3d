@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_getter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 09:15:50 by daniema3          #+#    #+#             */
-/*   Updated: 2026/03/01 17:21:56 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/09 12:08:14 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static t_map	init_map(void)
 	return (map);
 }
 
-static t_assets	init_assets(void)
+/*static t_assets	init_assets(void)
 {
 	t_assets	assets;
 
@@ -52,7 +52,7 @@ static t_assets	init_assets(void)
 	assets.west = NULL;
 	assets.east = NULL;
 	return (assets);
-}
+}*/
 
 static t_game	*cb_init(void)
 {
@@ -64,7 +64,7 @@ static t_game	*cb_init(void)
 	game->img = NULL;
 	game->map = init_map();
 	game->player = init_player();
-	game->assets = init_assets();
+	//game->assets = init_assets();
 	return (game);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_msg.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:32:48 by daniema3          #+#    #+#             */
-/*   Updated: 2026/03/01 17:13:52 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/09 11:25:02 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,17 @@ void	cb_exit(char *msg, int ec);
  failed\033[0m\n"
 /** Internal error code: Image creation failed */
 # define ERRC_IMG_CREATION_FAIL -5
+
+/** Internal error: Texture loading failed */
+# define ERR_TEX_LOAD_FAIL "\e[0;31mError\e[1;30m: \e[1;31mTexture loading failed\
+ \e[1;30m- \e[1;31m%s\033[0m\n"
+/** Internal error code: Texture loading failed */
+# define ERRC_TEX_LOAD_FAIL -6
+
+/** Internal error: Texture data address failed */
+# define ERR_TEX_DATA_ADDR_FAIL "\e[0;31mError\e[1;30m: \e[1;31mTexture data address failed\
+ \e[1;30m- \e[1;31m%s\033[0m\n"
+/** Internal error code: Texture data address failed */
+# define ERRC_TEX_DATA_ADDR_FAIL -7
 
 #endif
