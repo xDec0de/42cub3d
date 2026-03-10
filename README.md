@@ -78,9 +78,13 @@ functions we used from it
 
 | Name | Basic description |
 | :---: | :---: |
-| cos | Returns the cosine of an angle (in radians) |
-| sin | Returns the sine of an angle (in radians) |
-| atan2 | Returns the angle (in radians) of the vector |
+|  cosf  |      Returns the cosine of an angle (in radians)      |
+|  sinf  |       Returns the sine of an angle (in radians)       |
+| atan2f |      Returns the angle (in radians) of the vector     |
+|  sqrtf |           Returns the square root of a value          |
+|  fabsf | Returns the absolute value of a floating-point number |
+|  fmodf |   Returns the floating-point remainder of a division  |
+
 
 ## Debug mode
 
@@ -100,13 +104,16 @@ internal program errors are all negative integers.
 
 | Exit code | Macro | Description |
 | :---: | :---: | :---: |
-| 0 | EXIT_SUCCESS | Program executed successfully |
-| 1 | ERRC_ARGC | Invalid program argument count |
-| 2 | ERRC_MAP_FILE_EXTENSION | Provided map file name doesn't end with '.cub' |
-| 3 | ERRC_MAP_OPEN_MAP | Failed to open map file (Most likely it doesn't exist) |
-| 4 | ERRC_INVALID_COLOR | Invalid color format |
-| -1 | ERRC_MALLOC_FAIL | Malloc failed |
-| -2 | ERRC_READ_FAIL | Read failed |
-| -3 | ERRC_MLX_INIT_FAIL | MLX initialization failure |
-| -4 | ERRC_WINDOW_INIT_FAIL | Window intialization failure |
-| -5 | ERRC_IMG_CREATION_FAIL | Image creation failure |
+| 0 |       EXIT_SUCCESS       |              Program executed successfully             |
+| 1 |        ERRC_ARGC         |             Invalid program argument count             |
+| 2 | ERRC_MAP_FILE_EXTENSION  |     Provided map file name doesn't end with '.cub'     |
+| 3 |    ERRC_MAP_OPEN_MAP     | Failed to open map file (Most likely it doesn't exist) |
+| 4 |    ERRC_INVALID_COLOR    |                  Invalid color format                  |
+| -1 |     ERRC_MALLOC_FAIL    |                      Malloc failed                     |
+| -2 |      ERRC_READ_FAIL     |                       Read failed                      |
+| -3 |    ERRC_MLX_INIT_FAIL   |                MLX initialization failure              |
+| -4 |  ERRC_WINDOW_INIT_FAIL  |              Window intialization failure              |
+| -5 |  ERRC_IMG_CREATION_FAIL |                 Image creation failure                 |
+| -6 |    ERRC_TEX_LOAD_FAIL   |                 Texture loading failure                |
+| -7 | ERRC_TEX_DATA_ADDR_FAIL |         Texture data address retrieval failure         |
+
