@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:32:48 by daniema3          #+#    #+#             */
-/*   Updated: 2026/03/09 11:25:02 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:35:57 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,13 @@ void	cb_exit(char *msg, int ec);
 
 /** Internal error: Texture loading failed */
 # define ERR_TEX_LOAD_FAIL "\e[0;31mError\e[1;30m: \e[1;31mTexture loading failed\
- \e[1;30m- \e[1;31m%s\033[0m\n"
+ \e[1;30m\e[1;31m\033[0m\n"
 /** Internal error code: Texture loading failed */
 # define ERRC_TEX_LOAD_FAIL -6
 
 /** Internal error: Texture data address failed */
 # define ERR_TEX_DATA_ADDR_FAIL "\e[0;31mError\e[1;30m: \e[1;31mTexture data address failed\
- \e[1;30m- \e[1;31m%s\033[0m\n"
+ \e[1;30m\e[1;31m\033[0m\n"
 /** Internal error code: Texture data address failed */
 # define ERRC_TEX_DATA_ADDR_FAIL -7
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:34:46 by daniema3          #+#    #+#             */
-/*   Updated: 2026/02/14 17:59:04 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:47:54 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 
 void	free_game(t_game *game)
 {
+	mlx_destroy_image(game->mlx, game->assets.north.img);
+	mlx_destroy_image(game->mlx, game->assets.south.img);
+	mlx_destroy_image(game->mlx, game->assets.west.img);
+	mlx_destroy_image(game->mlx, game->assets.east.img);
+	mlx_destroy_image(game->mlx, game->img);
 	if (game->map.grid != NULL)
 		cb_arrfree((void **) game->map.grid);
 	if (game->mlx && game->window)
@@ -28,6 +33,10 @@ void	free_game(t_game *game)
 		free(game->mlx);
 		game->mlx = NULL;
 	}
+	free(game->map.no_path);
+	free(game->map.so_path);
+	free(game->map.we_path);
+	free(game->map.ea_path);
 	free(game);
 }
 

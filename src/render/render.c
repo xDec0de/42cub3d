@@ -6,7 +6,7 @@
 /*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:07:46 by rexposit          #+#    #+#             */
-/*   Updated: 2026/03/09 11:46:51 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:36:31 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ static void	load_texture(t_game *game, t_texture *tex, char *path)
 	tex->img = mlx_xpm_file_to_image(game->mlx,
 			path, &tex->width, &tex->height);
 	if (tex->img == NULL)
-		cb_exit(NULL, ERRC_TEX_LOAD_FAIL);
+		cb_exit(ERR_TEX_LOAD_FAIL, ERRC_TEX_LOAD_FAIL);
 	tex->data.addr = mlx_get_data_addr(tex->img, &tex->data.bits_per_pixel,
 			&tex->data.line_length, &tex->data.endian);
 	if (tex->data.addr == NULL)
-		cb_exit(NULL, ERRC_TEX_DATA_ADDR_FAIL);
+		cb_exit(ERR_TEX_DATA_ADDR_FAIL, ERRC_TEX_DATA_ADDR_FAIL);
 }
 
 static void	load_textures(t_game *game)
@@ -50,15 +50,15 @@ void	render(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		cb_exit(NULL, ERRC_MLX_INIT_FAIL);
+		cb_exit(ERR_MLX_INIT_FAIL, ERRC_MLX_INIT_FAIL);
 	load_textures(game);
 	game->window = mlx_new_window(game->mlx, WINDOW_WIDTH,
 			WINDOW_HEIGHT, WINDOW_TITLE);
 	if (!game->window)
-		cb_exit(NULL, ERRC_WINDOW_INIT_FAIL);
+		cb_exit(ERR_WINDOW_INIT_FAIL, ERRC_WINDOW_INIT_FAIL);
 	game->img = mlx_new_image(game->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	if (!game->img)
-		cb_exit(NULL, ERRC_IMG_CREATION_FAIL);
+		cb_exit(ERR_IMG_CREATION_FAIL, ERRC_IMG_CREATION_FAIL);
 	game->data.addr = mlx_get_data_addr(game->img, &game->data.bits_per_pixel,
 			&game->data.line_length, &game->data.endian);
 	mlx_hook(game->window, 17, 0L, close_window, game);
