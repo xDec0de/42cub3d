@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_hit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 19:36:46 by rexposit          #+#    #+#             */
-/*   Updated: 2026/03/05 21:20:55 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/03/13 00:00:30 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -42,8 +42,9 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	draw_square(int x, int y, int size, int color);
 void	draw_map(t_map *map);
 void	clear_image(t_game *game);
+void	draw_ceiling_and_floor(t_game *game, int x, int ws, int we);
 void	raycaster(t_game *game);
-void	draw_wall_slice( t_game *game, float dist, int screen_x, t_ray ray);
+void	draw_wall_slice(t_game *game, float dist, int screen_x, t_ray ray);
 void	my_mlx_pixel_put_color(t_data *data, int x, int y, t_color c);
 void	raycast_build_ray(t_game *game, t_ray *ray, float angle, int screen_x);
 

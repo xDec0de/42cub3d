@@ -103,6 +103,18 @@ typedef struct s_ray_cells
 	int		hit_y;
 }	t_ray_cells;
 
+typedef struct s_wall_data
+{
+	float	height;
+	int		wall_start;
+	int		wall_end;
+	int		draw_start;
+	int		tex_x;
+	float	step;
+	float	tex_pos;
+	int		bpp_bytes;
+}	t_wall_data;
+
 typedef struct s_game
 {
 	void		*mlx;

@@ -53,6 +53,7 @@ SRCS =	cub3d.c \
 
 SRCS +=	render/render.c \
 		render/draw.c \
+		render/draw_wall.c \
 		render/raycaster.c \
 		render/draw_pixel.c \
 		render/raycast_hit.c

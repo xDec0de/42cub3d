@@ -64,7 +64,6 @@ static t_game	*cb_init(void)
 	game->img = NULL;
 	game->map = init_map();
 	game->player = init_player();
-	//game->assets = init_assets();
 	return (game);
 }
 
