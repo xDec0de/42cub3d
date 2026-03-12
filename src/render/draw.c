@@ -108,9 +108,6 @@ void	draw_wall_slice(t_game *game, float dist, int screen_x, t_ray ray)
 	int			bpp_bytes;
 
 	height = (TILE_SIZE / dist) * (WINDOW_WIDTH / 2);
-	if (height > WINDOW_HEIGHT || height < 0)
-		height = WINDOW_HEIGHT;
-
 	draw_start = (WINDOW_HEIGHT - height) / 2;
 	wall_start = draw_start;
 	wall_end = wall_start + height;
