@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_structure.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 16:13:27 by daniema3          #+#    #+#             */
-/*   Updated: 2026/03/01 17:16:40 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/13 20:30:01 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ static bool	is_walkable(char c)
 	return (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W');
 }
 
+static void	structure_fail(char **map_data)
+{
+	cb_arrfree((void **) map_data);
+	cb_exit(ERR_INVALID_MAP, ERRC_INVALID_MAP);
+}
+
 void	validate_structure(char **grid, char **map_data)
 {
 	int	row;
@@ -46,11 +52,10 @@ void	validate_structure(char **grid, char **map_data)
 			if (is_walkable(grid[row][col]))
 			{
 				if (row == 0 || !grid[row + 1] || !is_enclosed(grid, row, col))
-				{
-					cb_arrfree((void **) map_data);
-					cb_exit(ERR_INVALID_MAP, ERRC_INVALID_MAP);
-				}
+					structure_fail(map_data);
 			}
+			else if (grid[row][col] != '1')
+				structure_fail(map_data);
 			col++;
 		}
 		row++;
