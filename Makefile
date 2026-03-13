@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+         #
+#    By: rexposit <rexposit@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/08 18:07:28 by daniema3          #+#    #+#              #
-#    Updated: 2026/03/11 15:10:32 by rexposit         ###   ########.fr        #
+#    Updated: 2026/03/13 20:42:40 by rexposit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MAKEFLAGS += --no-print-directory
 
-NAME = cub3d
+NAME = cub3D
 
 SRC_DIR = ./src
 OBJ_DIR = ./objs

@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_reader.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 23:38:41 by daniema3          #+#    #+#             */
-/*   Updated: 2026/02/09 02:08:40 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/13 20:37:38 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cb_parser.h"
-#include <stdio.h>
-#include <unistd.h>
-#include <errno.h>
-#include <string.h>
 
 static void	free_helper(char *buf, char *all, int fd)
 {

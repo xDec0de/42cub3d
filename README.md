@@ -1,5 +1,7 @@
 # 42cub3d ![Workflow status](https://github.com/xdec0de/42cub3d/actions/workflows/validate.yml/badge.svg)
 
+This project has been created as part of the 42 curriculum by rexposit and daniema3.
+
 A basic 3D raycasting engine in C inspired by Wolfenstein 3D.
 Parses .cub map files and renders walls with textures using the MiniLibX graphics library.
 

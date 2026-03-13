@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_parser.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 19:12:23 by rexposit          #+#    #+#             */
-/*   Updated: 2026/03/01 17:15:00 by daniema3         ###   ########.fr       */
+/*   Updated: 2026/03/13 20:37:46 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include "cb_strutils.h"
 # include "cb_chutils.h"
 # include "cb_mem.h"
+# include <unistd.h>
+# include <errno.h>
+# include <string.h>
 
 void	parse_map_file(t_game *game, char **map_data);
 
