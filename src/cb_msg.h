@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_msg.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:32:48 by daniema3          #+#    #+#             */
-/*   Updated: 2026/03/11 15:35:57 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/03/13 01:03:50 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ void	cb_exit(char *msg, int ec);
 # define ERR_INVALID_MAP "\e[0;31mError\e[1;30m: \e[1;31mInvalid\
  map structure\033[0m\n"
 # define ERRC_INVALID_MAP 5
+
+/** User error: Missing texture path(s) in map file */
+# define ERR_MISSING_TEXTURE "\e[0;31mError\e[1;30m: \e[1;31mMissing\
+ texture path(s) in map file\033[0m\n"
+/** User error code: Missing texture path(s) in map file */
+# define ERRC_MISSING_TEXTURE 6
 
 /*
  - Internal errors

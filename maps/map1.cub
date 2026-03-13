@@ -1,7 +1,7 @@
-NO ./assets/test_NO.xpm
-SO ./assets/test_SO.xpm
-WE ./assets/test_WE.xpm
-EA ./assets/test_EA.xpm
+NO ./assets/north.xpm
+SO ./assets/south.xpm
+WE ./assets/west.xpm
+EA ./assets/east.xpm
 
 F 0,0,0
 C 100,100,200

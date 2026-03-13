@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_getter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 09:15:50 by daniema3          #+#    #+#             */
-/*   Updated: 2026/03/09 12:08:14 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/03/13 00:57:11 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,23 @@ static t_map	init_map(void)
 	map.floor_col.r = 0;
 	map.floor_col.g = 0;
 	map.floor_col.b = 0;
+	map.no_path = NULL;
+	map.so_path = NULL;
+	map.we_path = NULL;
+	map.ea_path = NULL;
 	return (map);
 }
 
-/*static t_assets	init_assets(void)
+static t_assets	init_assets(void)
 {
 	t_assets	assets;
 
-	assets.north = NULL;
-	assets.south = NULL;
-	assets.west = NULL;
-	assets.east = NULL;
+	assets.north.img = NULL;
+	assets.south.img = NULL;
+	assets.west.img = NULL;
+	assets.east.img = NULL;
 	return (assets);
-}*/
+}
 
 static t_game	*cb_init(void)
 {
@@ -64,6 +68,7 @@ static t_game	*cb_init(void)
 	game->img = NULL;
 	game->map = init_map();
 	game->player = init_player();
+	game->assets = init_assets();
 	return (game);
 }
 

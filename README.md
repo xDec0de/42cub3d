@@ -49,7 +49,7 @@ For this project, we are allowed to use some of the functions we already know.
 | [open](https://linux.die.net/man/3/open) | fcntl.h | Open a file | ✅ |
 | [close](https://linux.die.net/man/2/close) | unistd.h | Close a file descriptor | ✅ |
 | [read](https://linux.die.net/man/3/read) | unistd.h | Read from a file | ✅ |
-| [write](https://linux.die.net/man/3/write) | unistd.h | Write on a file | ❌ |
+| [write](https://linux.die.net/man/3/write) | unistd.h | Write on a file | ✅ |
 | [printf](https://linux.die.net/man/3/printf) | stdio.h | Formatted output conversion | ✅ |
 | [malloc](https://linux.die.net/man/3/malloc) | stdlib.h | Allocate dynamic memory | ✅ |
 | [free](https://linux.die.net/man/3/free) | stdlib.h | Free dynamic memory | ✅ |
@@ -65,12 +65,16 @@ table only contains those functions we used from it.
 | :---: | :---: |
 | mlx_init | Initializes the graphical context |
 | mlx_new_window | Creates a new window |
+| mlx_destroy_window | Destroys a window and frees its resources |
 | mlx_hook | Registers an event handler on a window |
 | mlx_loop | Starts the event loop |
+| mlx_loop_hook | Registers a function that is called repeatedly on each loop iteration |
 | mlx_new_image | Creates a new empty image buffer |
 | mlx_get_data_addr | Returns a pointer to an image’s pixel buffer |
 | mlx_put_image_to_window | Displays an image buffer in a window at the given position |
-| mlx_loop_hook | Registers a function that is called repeatedly on each loop iteration |
+| mlx_xpm_file_to_image | Loads an XPM file into an image buffer |
+| mlx_destroy_image | Destroys an image buffer and frees its resources |
+| mlx_destroy_display | Destroys the display connection and frees its resources |
 
 
 And the whole math library. Once again, this table only contains those
@@ -107,12 +111,14 @@ internal program errors are all negative integers.
 | 0 |       EXIT_SUCCESS       |              Program executed successfully             |
 | 1 |        ERRC_ARGC         |             Invalid program argument count             |
 | 2 | ERRC_MAP_FILE_EXTENSION  |     Provided map file name doesn't end with '.cub'     |
-| 3 |    ERRC_MAP_OPEN_MAP     | Failed to open map file (Most likely it doesn't exist) |
+| 3 |      ERRC_OPEN_MAP       | Failed to open map file (Most likely it doesn't exist) |
 | 4 |    ERRC_INVALID_COLOR    |                  Invalid color format                  |
+| 5 |    ERRC_INVALID_MAP      |              Invalid or unclosed map structure         |
+| 6 |  ERRC_MISSING_TEXTURE    |          Missing NO/SO/WE/EA texture path(s)           |
 | -1 |     ERRC_MALLOC_FAIL    |                      Malloc failed                     |
 | -2 |      ERRC_READ_FAIL     |                       Read failed                      |
 | -3 |    ERRC_MLX_INIT_FAIL   |                MLX initialization failure              |
-| -4 |  ERRC_WINDOW_INIT_FAIL  |              Window intialization failure              |
+| -4 |  ERRC_WINDOW_INIT_FAIL  |              Window initialization failure             |
 | -5 |  ERRC_IMG_CREATION_FAIL |                 Image creation failure                 |
 | -6 |    ERRC_TEX_LOAD_FAIL   |                 Texture loading failure                |
 | -7 | ERRC_TEX_DATA_ADDR_FAIL |         Texture data address retrieval failure         |

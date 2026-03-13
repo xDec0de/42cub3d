@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: daniema3 <daniema3@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 04:34:46 by daniema3          #+#    #+#             */
-/*   Updated: 2026/03/11 15:47:54 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/03/13 00:57:24 by daniema3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,20 @@
 #include "cb_strutils.h"
 #include "cb_mem.h"
 
+static void	destroy_texture(t_game *game, t_texture *tex)
+{
+	if (game->mlx && tex->img)
+		mlx_destroy_image(game->mlx, tex->img);
+}
+
 void	free_game(t_game *game)
 {
-	mlx_destroy_image(game->mlx, game->assets.north.img);
-	mlx_destroy_image(game->mlx, game->assets.south.img);
-	mlx_destroy_image(game->mlx, game->assets.west.img);
-	mlx_destroy_image(game->mlx, game->assets.east.img);
-	mlx_destroy_image(game->mlx, game->img);
+	destroy_texture(game, &game->assets.north);
+	destroy_texture(game, &game->assets.south);
+	destroy_texture(game, &game->assets.west);
+	destroy_texture(game, &game->assets.east);
+	if (game->mlx && game->img)
+		mlx_destroy_image(game->mlx, game->img);
 	if (game->map.grid != NULL)
 		cb_arrfree((void **) game->map.grid);
 	if (game->mlx && game->window)
