@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cb_events.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rexposit <rexposit@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rexposit <rexposit@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:21:38 by rexposit          #+#    #+#             */
-/*   Updated: 2026/01/29 22:05:16 by rexposit         ###   ########.fr       */
+/*   Updated: 2026/03/13 20:18:34 by rexposit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define KEY_A XK_a
 # define KEY_S XK_s
 # define KEY_D XK_d
-# define KEY_RIGHT XK_l
-# define KEY_LEFT XK_j
+# define KEY_RIGHT XK_Right
+# define KEY_LEFT XK_Left
 
 int		close_window(void);
 int		handle_key(int key, t_game *game);
